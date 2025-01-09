@@ -18,69 +18,127 @@ import MyAds from "./Screens/MyAds/MyAds";
 import MyWatchlist from "./Screens/Watchlist/watchlist";
 import CarDetails from "./Screens/CarDetails/CarDetails";
 import RecentAdds from "./Screens/RecentAdds/RecentAdds";
+import PublicRoute from "./components/ProtectedRoutes/publicroutes";
+import ProtectedRoute from "./components/ProtectedRoutes/protectedroutes";
 
 function App() {
-  const token = Cookies?.get("token");
-
   const route = createBrowserRouter([
+    // Public Routes (accessible only when logged out)
     {
       path: "/",
-      element: token ? <HomePage /> : <LandingPage />,
+      element: (
+        <PublicRoute>
+          <LandingPage />
+        </PublicRoute>
+      ),
     },
     {
       path: "/login",
-      element: <LoginComponent />,
+      element: (
+        <PublicRoute>
+          <LoginComponent />
+        </PublicRoute>
+      ),
     },
     {
       path: "/signup",
-      element: <Signup />,
-    },
-    {
-      path: "/contact",
-      element: <Contact />,
-    },
-    {
-      path: "/home",
-      element: <HomePage />,
-    },
-    {
-      path: "/message",
-      element: <MessagePage />,
+      element: (
+        <PublicRoute>
+          <Signup />
+        </PublicRoute>
+      ),
     },
     {
       path: "/forgotPassword",
-      element: <ForgotPass />,
+      element: (
+        <PublicRoute>
+          <ForgotPass />
+        </PublicRoute>
+      ),
     },
     {
       path: "/otp",
-      element: <EnterOTP />,
+      element: (
+        <PublicRoute>
+          <EnterOTP />
+        </PublicRoute>
+      ),
     },
     {
       path: "/reset-password",
-      element: <ResetPass />,
+      element: (
+        <PublicRoute>
+          <ResetPass />
+        </PublicRoute>
+      ),
+    },
+
+    // Protected Routes (accessible only when logged in)
+    {
+      path: "/home",
+      element: (
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/contact",
+      element: (
+        <ProtectedRoute>
+          <Contact />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/message",
+      element: (
+        <ProtectedRoute>
+          <MessagePage />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/mybids",
-      element: <MyBids />,
+      element: (
+        <ProtectedRoute>
+          <MyBids />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/myads",
-      element: <MyAds />,
+      element: (
+        <ProtectedRoute>
+          <MyAds />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/mywatchlist",
-      element: <MyWatchlist />,
+      element: (
+        <ProtectedRoute>
+          <MyWatchlist />
+        </ProtectedRoute>
+      ),
     },
     {
-      path: '/carDetails/:carId',  // Notice the '/' before :carId
-      element: <CarDetails />
+      path: "/carDetails/:carId",
+      element: (
+        <ProtectedRoute>
+          <CarDetails />
+        </ProtectedRoute>
+      ),
     },
     {
-      path:'/recentAdds',
-      element:<RecentAdds/>
-    }
+      path: "/recentAdds",
+      element: (
+        <ProtectedRoute>
+          <RecentAdds />
+        </ProtectedRoute>
+      ),
+    },
   ]);
-
   return (
     <div style={{ backgroundColor: "#f8fafc", minHeight: "100vh" }}>
       <RouterProvider router={route}></RouterProvider>

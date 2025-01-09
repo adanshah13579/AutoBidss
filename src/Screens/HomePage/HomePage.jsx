@@ -57,6 +57,9 @@ const HomePage = () => {
     autoplaySpeed: 2000,
   };
 
+  console.log("adsdata",adsData);
+  
+
   return (
     <>
       <NavbarLoggedIn />
@@ -94,12 +97,13 @@ const HomePage = () => {
               timeAgo={ad.timeAgo}
               title={ad.title}
               currentBid={ad.highestCurrentBid}
-              bidAcceptTill={ad.timeLeft}
+              bidAcceptTill={ad.
+                bidAcceptTill}
               listingDate={ad.listingDate}
-              
-             
-              
+                
             />
+            
+            
           ))}
         </div>
         <EarliestCars/>

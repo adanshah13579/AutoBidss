@@ -119,7 +119,7 @@ const ProfileDropdown = () => {
     setIsLogoutModalVisible(false);
   };
 
-  // Handle Save Changes
+  
   const handleSaveChanges = async () => {
     setLoading(true);
     setError(null);
@@ -137,7 +137,6 @@ const ProfileDropdown = () => {
       setLoading(false);
       return;
     }
-
     try {
       const token = Cookies.get("token");
       await axios.put(`${baseuri}/profiles/edit-profile`, changedData, {
@@ -171,7 +170,7 @@ const ProfileDropdown = () => {
       {isMenuOpen && (
         <div className="profile-menu">
           <div className="profile-header">
-            <Avatar size={50} style={{ backgroundColor: "#2B59FF" }} />
+            
             <div className="profile-details">
               <strong>{Cookies.get("name") || "John Doe"}</strong>
               <p>{Cookies.get("email") || "johndoe@example.com"}</p>

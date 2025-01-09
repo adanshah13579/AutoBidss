@@ -14,6 +14,7 @@ import ProfileDropdown from "./profileDropDown";
 import { Link } from "react-router-dom";
 import { checkUnreadNotifications, fetchUserNotifications } from "../../../RESTAPI/Notifify/notify";
 const { Search } = Input;
+import { useNavigate } from "react-router-dom";
 
 const NavbarLoggedIn = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,6 +22,8 @@ const NavbarLoggedIn = () => {
   const [hasUnread, setHasUnread] = useState(false);
   const [notifications, setNotifications] = useState([]); 
   const notificationRef = useRef(null);
+  const navigate = useNavigate();
+
 
   const userId = Cookies.get("userId");
 
@@ -39,20 +42,21 @@ const NavbarLoggedIn = () => {
 
 
   useEffect(() => {
-    if (!userId) return; // Ensure userId exists before making the API calls
+    if (!userId) return; 
 
     const checkNotifications = async () => {
-      const result = await checkUnreadNotifications(userId); // Use userId from cookies
+      const result = await checkUnreadNotifications(userId); 
       if (result.success) {
-        setHasUnread(result.data.hasUnread === "yes"); // Set whether there are unread notifications
+        setHasUnread(result.data.hasUnread === "yes"); 
       }
     };
 
-    // Fetch the actual notifications
     const fetchNotifications = async () => {
-      const result = await fetchUserNotifications(userId); // Use userId from cookies
+      const result = await fetchUserNotifications(userId); 
+      console.log("resulttt",result);
+      
       if (result.success) {
-        setNotifications(result.data.notifications); // Set the notifications data
+        setNotifications(result.data.notifications); 
       }
     };
 
@@ -76,6 +80,14 @@ const NavbarLoggedIn = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+
+  const handleNotificationClick = (carId) => {
+    if (carId) {
+      navigate(`/carDetails/${carId}`);
+    }
+  };
+  
   return (
     <nav className="navbar">
       <div className="logo">
@@ -177,7 +189,8 @@ const NavbarLoggedIn = () => {
                     <p>No notifications.</p>
                   ) : (
                     notifications.map((notification) => (
-                      <div key={notification._id} className="notification-item">
+                      <div key={notification._id} className="notification-item" onClick={() => handleNotificationClick(notification.carId)}
+                      style={{ cursor: "pointer" }} >
                         <img
                           src="https://artprojectsforkids.org/wp-content/uploads/2023/12/How-to-Draw-a-Bell-web.jpg"
                           alt="notification"

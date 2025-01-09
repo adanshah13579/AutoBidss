@@ -10,11 +10,16 @@ import "/node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "./CarDetails.css";
 import { useParams } from "react-router-dom";
 import SimilarCars from "../Similar_cars/similarcars";
+import CustomModal from "../../components/Modals/CustomModal";
 
 const CarDetails = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [carDetails, setCarDetails] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalType, setModalType] = useState("");  
+  const [modalContent, setModalContent] = useState("");
+  const [modalTitle, setModalTitle] = useState("");
 
 
   const {carId} = useParams();
@@ -39,6 +44,39 @@ const CarDetails = () => {
       }))
     : [];
 
+    const openModal = (type) => {
+      setModalType(type);
+  
+      if (type === "bid") {
+        setModalTitle("Place Your Bid");
+        setModalContent("Are you sure you want to place your bid on this car?");
+      } else if (type === "buy") {
+        setModalTitle("Buy Now");
+        setModalContent("Are you sure you want to buy this car?");
+      } else if (type === "download") {
+        setModalTitle("Download Car Report");
+        setModalContent("You can download the car inspection report here.");
+      }
+  
+      setIsModalVisible(true);
+    };
+  
+    const handleCancelModal = () => {
+      setIsModalVisible(false);
+    };
+
+    const handleOk = () => {
+      if (modalType === "bid") {
+        message.success("Bid placed successfully!");
+      } else if (modalType === "buy") {
+        message.success("Car purchased successfully!");
+      } else if (modalType === "download") {
+        message.success("Car Report downloaded successfully!");
+      }
+      setIsModalVisible(false);
+    };
+  
+  
   return (
     <div>
       <NavbarLoggedIn />
@@ -151,7 +189,7 @@ const CarDetails = () => {
               <div className="colflex">
                 <span style={{ fontWeight: 600 }}>Car Report </span>
                 <span style={{ fontWeight: 600, color: "#2B59FF" }}>
-                  <a style={{ cursor: "pointer" }}> Download Car Report</a>
+                  <a onClick={() => openModal("download")}style={{ cursor: "pointer" }}> Download Car Report</a>
                 </span>
               </div>
             </div>
@@ -195,10 +233,10 @@ const CarDetails = () => {
               </div>
               <hr className="linehr" />
               <div className="overViewActions">
-                <button className="overViewbuy-button">
+                <button className="overViewbuy-button"  onClick={() => openModal("buy")}>
                   Buy Now
                 </button>
-                <button className="overViewbid-button">
+                <button className="overViewbid-button" onClick={() => openModal("bid")}>
                   Bid Now 
                 </button>
               </div>
@@ -206,6 +244,15 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
+      <CustomModal
+        isVisible={isModalVisible}
+        title={modalTitle}
+        content={modalContent}
+        onOk={handleOk}
+        onCancel={handleCancelModal}
+        singleButton={false}
+        type={modalType === "download" ? "default" : "primary"}
+      />
       {loading && <Spin size="large" tip="Loading..." />}
       {error && <div>{error}</div>}
       <SimilarCars />

@@ -112,8 +112,7 @@ const MyBids = () => {
           <Tabs.TabPane tab="Won" key="Won" />
         </Tabs>
 
-        {/* Loader */}
-        {loading && <Spin size="large" style={{ display: "block", margin: "20px auto" }} />}
+        
 
         {/* Error Message */}
         {error && <Alert message={error} type="error" showIcon style={{ marginBottom: "20px" }} />}

@@ -5,7 +5,6 @@ import NavbarLoggedIn from "../../components/NavbarLoggedIn/navbarLoggedIn";
 import Footer from "../../components/Footer/Footer";
 import { fetchUserWatchlist } from "../../../RESTAPI/Profile/ProfileRoutes";
 import Cookies from "js-cookie";
-import { Spin } from "antd";
 
 
 const MyWatchlist = () => {
@@ -20,8 +19,8 @@ const MyWatchlist = () => {
 const userId = Cookies.get("userId"); 
   // Function to load ads
   const getAds = async () => {
-    if (loading) return; // Prevent duplicate calls
-    setLoading(true); // Set loading to true while fetching
+    if (loading) return; 
+    setLoading(true); 
     try {
       const result = await fetchUserWatchlist(
         userId,
@@ -86,12 +85,7 @@ const userId = Cookies.get("userId");
           <h2>My Watchlist</h2>
         </div>
 
-        {/* Loading state */}
-        {loading && (
-          <div className="loading-container">
-            <Spin size="large" tip="Loading..." />
-          </div>
-        )}
+        
 
         {/* Error state */}
         {error && <div className="error">{error}</div>}

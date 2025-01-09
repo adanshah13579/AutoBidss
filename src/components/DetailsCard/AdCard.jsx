@@ -26,42 +26,63 @@ const AdCard = ({
   location,
   timeAgo,
   currentBid,
-  listingdate,
+  listingDate,
   bidAcceptTill,
 }) => {
-  const [isInWatchlist, setIsInWatchlist] = useState(false); // State for watchlist status
-  const [loading, setLoading] = useState(false); // Loading state
+
+  
+  
+  const [isInWatchlist, setIsInWatchlist] = useState(false); 
   const [timeLeft, setTimeLeft] = useState(""); // Time left state
   const userId = Cookies.get("userId"); // Fetch user ID from cookies
 
-  // Function to calculate time left
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const end = new Date(bidAcceptTill);
-    const diff = end - now;
 
+  const calculateTimeLeft = () => {
+    const now = new Date(); 
+    const listingStart = new Date(listingDate); 
+    const bidEnd = new Date(bidAcceptTill); 
+  
+   
+    if (now < listingStart) {
+      return "Listing not yet started";
+    }
+  
+    
+    const diff = bidEnd - now;
+  
     if (diff > 0) {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      return `${days}d ${hours}h ${minutes}m left`;
+  
+      
+      if (days > 0) {
+        return `${days} day${days > 1 ? "s" : ""} left`;
+      } else if (hours > 0) {
+        return `${hours} hour${hours > 1 ? "s" : ""} left`;
+      } else {
+        return `${minutes} minute${minutes > 1 ? "s" : ""} left`;
+      }
     } else {
       return "Closed";
     }
   };
+  
+  
 
-  // Update time left periodically
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
-    }, 1000); // Update every second
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [bidAcceptTill]);
+    }, 1000);
+  
+    return () => clearInterval(interval); 
+  }, [listingDate, bidAcceptTill]);
 
-  // Handle Add to Watchlist
+
+
   const handleAddToWatchlist = async () => {
     try {
-      setLoading(true); // Start loading
+       
       const response = await axios.post(
         `${baseuri}/cars/addtowatchlist/${carId}/${userId}`
       );
@@ -72,7 +93,7 @@ const AdCard = ({
 
       if (response.status === 201) {
         message.success("Car added to watchlist!");
-        setIsInWatchlist(true); // Mark as added
+        setIsInWatchlist(true); 
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -81,7 +102,7 @@ const AdCard = ({
         message.error("Failed to add to watchlist. Please try again.");
       }
     } finally {
-      setLoading(false); // Stop loading
+       
     }
   };
 
@@ -92,12 +113,12 @@ const AdCard = ({
         {isInWatchlist ? (
           <HeartFilled
             className="Hicon"
-            onClick={handleAddToWatchlist} // Trigger function on click
+            onClick={handleAddToWatchlist} 
           />
         ) : (
           <HeartOutlined
             className="Hicon"
-            onClick={handleAddToWatchlist} // Trigger function on click
+            onClick={handleAddToWatchlist} 
           />
         )}
 
