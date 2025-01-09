@@ -1,0 +1,39 @@
+.topLevel {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  flex-direction: column;
+}
+.headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.cats {
+  color: black;
+  font-family: "Outfit";
+  font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive icon size */
+  font-weight: 600;
+}
+.viewMore {
+  color: #2b59ff;
+  font-family: "Outfit";
+  font-size: clamp(1rem, 1.4vw, 1.1rem); /* Responsive icon size */
+  font-weight: 400;
+  cursor: pointer;
+}
+.viewMore:hover {
+  font-weight: 500;
+  transform: font-weight 1.5s ease;
+}
+.AdsSection {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}

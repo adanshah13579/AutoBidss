@@ -1,0 +1,114 @@
+/* General Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.heading-container {
+  background-color: #eff2ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 650px; /* Increased max-width for larger labels */
+  text-align: left;
+  font-family: "inter";
+}
+
+.heading {
+  font-size: 24px;
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+  max-width: 650px; /* Increased max-width for larger labels */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-item {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.form-label {
+  width: 190px; /* Increased width for longer labels */
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 8px; /* Added margin to provide space between label and input */
+}
+
+.form-input {
+  flex: 1;
+  width: auto;
+  min-width: 200px; /* Increased min-width for form inputs */
+}
+
+/* Increase height of input fields */
+.ant-input,
+.ant-input-textarea {
+  width: 100%;
+  height: 40px; /* Increase height */
+  padding: 8px; /* Optional: Adjust padding for better spacing */
+}
+
+/* Increase height of the select box from the outside */
+.ant-select {
+  width: 100%;
+  height: 40px; /* Increase the height of the select box */
+}
+
+.ant-select-selector {
+  height: 40px; /* Ensure the select box itself has increased height */
+  padding: 8px; /* Optional: Adjust padding for better spacing inside the dropdown */
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-label {
+    margin-bottom: 5px;
+    width: auto;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .form-item {
+    margin-bottom: 10px;
+  }
+}

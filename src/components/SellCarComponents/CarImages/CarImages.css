@@ -1,0 +1,47 @@
+.car-images-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.heading-container {
+  background-color: #eff2ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 650px; /* Increased max-width for larger labels */
+  text-align: left;
+  font-family: "inter";
+}
+
+.heading {
+  font-size: 24px;
+  margin: 0;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.clickable-svg {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image-card{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.thumbnail
+{
+  height: 200px;
+  width: 200px;
+}

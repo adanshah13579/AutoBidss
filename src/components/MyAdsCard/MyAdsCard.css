@@ -1,0 +1,297 @@
+.car-card {
+  display: flex;
+
+  align-items: flex-start;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  overflow: visible;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  flex-direction: row;
+
+  background: #fff;
+
+  position: relative;
+  height: 210px;
+}
+
+.car-image-container {
+  position: relative;
+
+  flex: 1;
+
+  max-width: 25%;
+  height: 100%;
+  flex-shrink: 0;
+
+  overflow: hidden; /* Prevent any overflow from the image */
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Maintains aspect ratio and fills the container */
+}
+
+.heart-icon {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+
+  right: 10px;
+
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Adjust font size responsively */
+
+  font-family: "Inter";
+
+  color: wheat;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  border-radius: 50%;
+
+  padding: 5px;
+
+  background-color: #2c2a2a9f;
+  
+}
+
+
+.chat-icon {
+  font-family: "Inter";
+  cursor: pointer;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Adjust font size responsively */
+
+  color: #007bff;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  padding: 5px;
+}
+
+.car-content {
+  padding-right: 15px;
+
+  padding-left: 15px;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 150px;
+}
+
+.titleandchat h3 {
+  font-size: 1.1rem; /* Adjust font size responsively */
+}
+.titleandchat {
+  color: #333;
+  align-items: center;
+  max-height: 15%;
+  margin-top: 5px;
+  display: flex;
+
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+#titleandchat2 {
+  margin-bottom: 15px;
+}
+
+.car-location {
+  font-family: "Inter";
+
+  font-size: clamp(0.75rem, 1vw, 0.9rem); /* Adjust font size responsively */
+
+  color: #777;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.car-info {
+  display: flex;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+
+  font-family: "Inter";
+
+  font-size: clamp(0.75rem, 1vw, 0.9rem); /* Adjust font size responsively */
+
+  color: #070202;
+
+  margin: 5px;
+
+  margin-bottom: 10px;
+
+  margin-top: 12px;
+}
+
+.car-info span {
+  background: #24242459;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+
+  border-radius: 4px;
+}
+.car-pricing {
+  margin-top: 15px;
+}
+.car-pricing p {
+  justify-self: flex-start;
+
+  color: #333;
+
+  margin: 0;
+
+  font-family: "Outfit";
+
+  font-size: 1rem; /* Adjust font size responsively */
+}
+
+.car-actions {
+  display: flex;
+
+  justify-content: space-around;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.car-actions2 {
+  display: flex;
+
+  justify-content: right;
+  width: 100%;
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.bid-button,
+.buy-button {
+  font-family: "Inter";
+
+  font-size: clamp(0.7rem, 1vw, 0.8rem); /* Adjust font size responsively */
+
+  padding: 0.65rem; /* Adjust button padding */
+
+  width: 49%;
+
+  border: 1px solid #2b59ff;
+  margin-top: 20px;
+}
+.car-actions2 button {
+  width: 20%;
+}
+.bid-button {
+  background-color: #2b59ff;
+
+  color: white;
+}
+
+.buy-button {
+  background-color: transparent;
+
+  color: #2b59ff;
+}
+
+.bid-button:hover {
+  background-color: #1d3796;
+
+  transition: background-color 0.7s ease;
+}
+
+.buy-button:hover {
+  background-color: #ebebeb;
+
+  transition: background-color 0.7s ease;
+}
+
+.car-timer {
+  position: absolute;
+
+  right: 16px;
+
+  bottom: 25%;
+
+  text-align: right;
+}
+
+.timer-text {
+  font-family: "Inter";
+
+  font-size: clamp(0.75rem, 1vw, 0.9rem); /* Adjust font size responsively */
+
+  margin-right: 5px;
+
+  color: red;
+
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .car-card {
+    height: 210px;
+  }
+  .car-image-container {
+    max-width: 25%;
+  }
+  .car-pricing {
+    margin-top: 10px;
+  }
+  .car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Maintains aspect ratio and fills the container */
+  }
+  .car-actions {
+    width: 100%;
+  }
+
+  .titleandchat h3 {
+    font-size: 0.9rem; /* Adjust font size responsively */
+  }
+
+  .car-info {
+    gap: 3px;
+
+    font-size: clamp(0.55rem, 1vw, 0.9rem); /* Adjust font size responsively */
+
+    margin: 2px;
+
+    margin-bottom: 5px;
+
+    margin-top: 5px;
+  }
+
+  .car-info span {
+    background: #24242459;
+    font-size: 0.7rem;
+    padding: 2px 4px;
+
+    border-radius: 4px;
+  }
+  .bid-button,
+  .buy-button {
+    width: 40%;
+  }
+  .car-actions2 button {
+    width: 40%;
+  }
+}

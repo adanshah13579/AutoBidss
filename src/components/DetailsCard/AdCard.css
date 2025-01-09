@@ -1,0 +1,162 @@
+.vehicle-card {
+  width: 20%;
+  max-width: 40%;
+  height: auto; /* Adjust height to fit content dynamically */
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  position: relative; /* Ensure child elements respect parent boundaries */
+}
+
+.vehicle-card2 {
+  width: 100%;
+  height: auto; /* Adjust height to fit content dynamically */
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-card .ant-card-body {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensures content stretches proportionally */
+}
+.veh-card2 {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+.vehDiv {
+  width: 100%;
+  aspect-ratio: 12 / 6; /* Ensures the image always fits in a responsive container */
+  overflow: hidden;
+  position: relative;
+}
+.Hicon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+
+  padding: 6px;
+  border-radius: 7px;
+  background-color: #2c2a2a9f;
+  color: wheat;
+}
+.vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures proper cropping without stretching */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vehicle-details {
+  font-family: "Inter";
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: clamp(
+    0.8rem,
+    0.8vw,
+    0.8rem
+  ); /* Responsive font size based on viewport width */
+  color: #555;
+  flex-grow: 1;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.detail-icon {
+  margin-right: 5px;
+  color: #221d1d;
+  font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive icon size */
+}
+
+.bid-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-family: "Outfit";
+  margin: 10px 0;
+  font-size: clamp(0.8rem, 1vw, 1rem); /* Responsive bid info size */
+}
+
+.bid-amount {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* Adjust font size responsively */
+  color: #333;
+  font-weight: 700;
+}
+
+.bid-time {
+  color: #ff2424;
+  font-size: clamp(0.8rem, 1vw, 1rem); /* Adjust font size for time */
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  font-size: clamp(0.8rem, 1.2vw, 0.8rem); /* Responsive button font size */
+  padding: clamp(0.5rem, 0.8vw, 0.8rem); /* Adjust button padding */
+  width: 46%;
+  border: 1px solid #2b59ff;
+}
+
+.bidN {
+  background-color: #2b59ff;
+  color: white;
+}
+.buyN {
+  background-color: transparent;
+  color: #2b59ff;
+}
+.bidN:hover {
+  background-color: #1d3796;
+  transition: background-color 0.7s ease;
+}
+.buyN:hover {
+  background-color: #ebebeb;
+  transition: background-color 0.7s ease;
+}
+@media (max-width: 768px) {
+  .vehicle-card2 {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+  .vehicle-card {
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+  }
+  .vehDiv {
+    aspect-ratio: 12 / 5; /* Ensures the image always fits in a responsive container */
+    overflow: hidden;
+  }
+  .actions {
+    flex-direction: row;
+    gap: 10px; /* Reduce gap between buttons */
+    justify-content: center;
+    align-items: center;
+  }
+}

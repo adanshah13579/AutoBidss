@@ -1,0 +1,70 @@
+.tips-container {
+  text-align: center;
+  margin: 20px;
+  padding: 10px 10%;
+}
+
+.title {
+  font-size: 2.5rem;
+
+  font-family: "Outfit";
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  color: black;
+  font-family: "Inter";
+}
+
+.tips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vw;
+}
+
+.tip-card {
+  background-color: transparent;
+  border: 1px solid #2b59ff;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 25%; /* Desktop Card Width */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tip-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.tip-card h3 {
+  font-size: 1.2rem;
+  font-family: "Inter";
+  margin: 8px 0;
+  color: #333;
+}
+
+.tip-card p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .tips-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tip-card {
+    width: 90%; /* Mobile card width */
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

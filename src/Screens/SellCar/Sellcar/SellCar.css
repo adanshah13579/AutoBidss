@@ -1,0 +1,276 @@
+/* Container */
+.sell-car-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 20px;
+}
+.pricing-container {
+  width: 100%;
+}
+.SelectFeatures-container {
+  width: 100%;
+}
+.basic-container {
+  width: 100%;
+}
+.OverView-container {
+  width: 100%;
+}
+.Carimages-container {
+  width: 100%;
+}
+.Inspection-container {
+  width: 100%;
+}
+/* SVG Background */
+.background-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: auto;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Headings */
+.main-heading {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  color: #000000;
+  font-family: "Outfit";
+  position: relative;
+  z-index: 1;
+}
+
+.sub-heading {
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 0.5rem;
+  color: #6f6f6f;
+  font-family: "Inter";
+  position: relative;
+  z-index: 1;
+}
+
+/* Card */
+.steps-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px 24px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+  flex-wrap: wrap; /* Wrap items for smaller screens */
+}
+#stepdiv {
+  cursor: pointer;
+}
+/* Step Details */
+.step {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.step-number {
+  background-color: #cccccc;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.step-text {
+  font-size: 16px;
+  color: #333333;
+  margin-right: 8px;
+}
+
+.step-dots {
+  color: #cccccc;
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+/* Active Step */
+.step.active .step-number {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.step.active .step-text {
+  color: #007bff;
+}
+
+.step.active .step-dots {
+  color: #007bff;
+}
+
+/* Next Button */
+.next-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+/* New Listing Section */
+.listing-container {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  width: 80%;
+  max-width: 800px;
+  z-index: 1;
+}
+
+.listing-heading {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+  font-family: "Outfit";
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 600px;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 24px;
+  }
+
+  .sub-heading {
+    font-size: 16px;
+  }
+
+  .steps-card {
+    width: 90%;
+    padding: 12px 16px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .step {
+    margin-bottom: 16px; /* Add spacing between steps */
+  }
+
+  .step-number {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .step-text {
+    font-size: 14px;
+  }
+
+  .step-dots {
+    font-size: 14px;
+  }
+
+  .next-button {
+    margin-left: 0; /* Center align the button */
+    margin-top: 16px;
+    width: 100%;
+  }
+  /* New Listing Section */
+  .listing-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 800px;
+    z-index: 1;
+  }
+
+  .listing-heading {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+    font-family: "Outfit";
+  }
+
+  .input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .input-field {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 20px;
+  }
+
+  .sub-heading {
+    font-size: 14px;
+  }
+
+  .steps-card {
+    padding: 8px 12px;
+  }
+
+  .step-text {
+    font-size: 12px;
+  }
+
+  .step-dots {
+    font-size: 12px;
+  }
+
+  .next-button {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .listing-heading {
+    font-size: 18px;
+  }
+
+  .input-field {
+    width: 90%;
+  }
+}
