@@ -1,6 +1,6 @@
 .vehicle-card {
-  width: 20%;
-  max-width: 40%;
+  width: 30%;
+  max-width: 30%;
   height: auto; /* Adjust height to fit content dynamically */
   padding: 0px;
   display: flex;
@@ -63,22 +63,26 @@
 
 .vehicle-details {
   font-family: "Inter";
+  width: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 8px;
   margin-top: 10px;
   font-size: clamp(
     0.8rem,
     0.8vw,
     0.8rem
-  ); /* Responsive font size based on viewport width */
+  );
   color: #555;
   flex-grow: 1;
 }
 
 .detail-item {
   display: flex;
+
   align-items: center;
+  
+  
   margin-right: 20px;
   white-space: nowrap;
 }
@@ -100,7 +104,7 @@
 }
 
 .bid-amount {
-  font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* Adjust font size responsively */
+  font-size: clamp(1rem, 1vw, 1rem); /* Adjust font size responsively */
   color: #333;
   font-weight: 700;
 }

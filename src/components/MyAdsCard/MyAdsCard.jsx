@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { HeartOutlined, HeartFilled, MessageOutlined, EnvironmentOutlined, ClockCircleOutlined } from "@ant-design/icons";
+import {
+  HeartOutlined,
+  HeartFilled,
+  MessageOutlined,
+  EnvironmentOutlined,
+  ClockCircleOutlined,
+} from "@ant-design/icons";
 import { message } from "antd";
-import { baseuri } from "../../../BaseUri/baseuri"; 
-import Cookies from "js-cookie"; 
+import { baseuri } from "../../../BaseUri/baseuri";
+import Cookies from "js-cookie";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./MyAdsCard.css";
-import Loader from "../Loader/loader";
 
 const MyAdsCard = ({
   carId,
@@ -24,21 +30,22 @@ const MyAdsCard = ({
   fromHomePage = true,
 }) => {
   const [isInWatchlist, setIsInWatchlist] = useState(true);
-  const [loading, setLoading] = useState(false); // For individual actions
-  const [isPageLoading, setIsPageLoading] = useState(true); // For the entire page
 
   const userId = Cookies.get("userId");
   const cleanedUserId = userId?.trim();
 
   const handleRemoveFromWatchlist = async () => {
     if (!userId) {
-      message.warning("You need to log in to remove items from your watchlist.");
+      message.warning(
+        "You need to log in to remove items from your watchlist."
+      );
       return;
     }
 
-    setLoading(true);
     try {
-      const response = await axios.delete(`${baseuri}/cars/removefromwatchlist/${carId}/${cleanedUserId}`);
+      const response = await axios.delete(
+        `${baseuri}/cars/removefromwatchlist/${carId}/${cleanedUserId}`
+      );
       if (response.status === 200) {
         message.success("Car removed from watchlist!");
         setIsInWatchlist(false);
@@ -46,41 +53,28 @@ const MyAdsCard = ({
     } catch (error) {
       message.error("Failed to remove from watchlist. Please try again.");
     } finally {
-      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setTimeout(() => {
-        setIsPageLoading(false);
-      }, 2000); // Simulated delay
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div className="car-card">
-      {isPageLoading ? (
-        <Loader /> // Reusable Loader component
-      ) : (
-        <>
+    <div>
+      
+        <div className="car-card">
           <div className="car-image-container">
             {isInWatchlist ? (
               <HeartFilled
                 className="heart-icon"
                 onClick={handleRemoveFromWatchlist}
-                disabled={loading}
               />
             ) : (
               <HeartOutlined
                 className="heart-icon"
                 onClick={handleRemoveFromWatchlist}
-                disabled={loading}
               />
             )}
             <img src={imageSrc} alt="Car" className="car-image" />
           </div>
+          <Link to={`/carDetails/${carId}`}>
           <div className="car-content">
             <div className="titleandchat">
               <h3>{title}</h3>
@@ -88,7 +82,8 @@ const MyAdsCard = ({
             </div>
             <div className="car-header">
               <span className="car-location">
-                <EnvironmentOutlined /> {location} • <ClockCircleOutlined /> {timeAgo}
+                <EnvironmentOutlined /> {location} • <ClockCircleOutlined />{" "}
+                {timeAgo}
               </span>
             </div>
             <div className="car-info">
@@ -116,8 +111,9 @@ const MyAdsCard = ({
               <button className="bid-button">Bid Now</button>
             </div>
           </div>
-        </>
-      )}
+          </Link>
+        </div>
+     
     </div>
   );
 };

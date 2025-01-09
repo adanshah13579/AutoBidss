@@ -5,6 +5,7 @@ import NavbarLoggedIn from "../../components/NavbarLoggedIn/navbarLoggedIn";
 import Footer from "../../components/Footer/Footer";
 import { fetchUserAds } from "../../../RESTAPI/Profile/ProfileRoutes";
 import Cookies from "js-cookie";
+import Loader from "../../components/Loader/loader"; // Assuming you have a loader component
 
 import TimeAgo from "react-timeago";
 import Countdown from "react-countdown";
@@ -21,6 +22,7 @@ const MyAds = () => {
   const userId = Cookies.get("userId");
 
   const getAds = async () => {
+    setLoading(true); // Show loader when fetching data
     const result = await fetchUserAds(
       userId,
       pagination.page,
@@ -40,6 +42,7 @@ const MyAds = () => {
     } else {
       setError(result.error);
     }
+    setLoading(false); // Hide loader after data is fetched
   };
 
   const handleScroll = () => {
@@ -66,7 +69,7 @@ const MyAds = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Clean up the event listener on unmount
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [loading, pagination.page]);
 
@@ -82,7 +85,9 @@ const MyAds = () => {
         {error && <div className="error">{error}</div>}
 
         <div className="myAds-cards">
-          {adsData.length > 0 ? (
+          {loading ? (
+            <Loader /> // Display loader while fetching ads
+          ) : adsData.length > 0 ? (
             adsData.map((ad, index) => (
               <MyAdsCard
                 key={index}

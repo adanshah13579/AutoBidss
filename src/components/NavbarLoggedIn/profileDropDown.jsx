@@ -19,7 +19,8 @@ const ProfileDropdown = () => {
   // State hooks
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false);
-  const [isChangePasswordModalVisible, setIsChangePasswordModalVisible] = useState(false);
+  const [isChangePasswordModalVisible, setIsChangePasswordModalVisible] =
+    useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -41,7 +42,6 @@ const ProfileDropdown = () => {
     setConfirmPassword("");
   };
 
-
   const handleChangePasswordSubmit = async () => {
     if (!newPassword || !confirmPassword) {
       message.error("Please fill all fields");
@@ -59,7 +59,8 @@ const ProfileDropdown = () => {
       handleCancelChangePassword(); // Close the modal
     } else {
       message.error(response.error);
-    }}
+    }
+  };
 
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -119,14 +120,12 @@ const ProfileDropdown = () => {
     setIsLogoutModalVisible(false);
   };
 
-  
   const handleSaveChanges = async () => {
     setLoading(true);
     setError(null);
 
     const changedData = {};
 
-    // Compare current values with initial data
     Object.keys(profileData).forEach((key) => {
       if (profileData[key] !== initialProfileData[key]) {
         changedData[key] = profileData[key];
@@ -170,7 +169,6 @@ const ProfileDropdown = () => {
       {isMenuOpen && (
         <div className="profile-menu">
           <div className="profile-header">
-            
             <div className="profile-details">
               <strong>{Cookies.get("name") || "John Doe"}</strong>
               <p>{Cookies.get("email") || "johndoe@example.com"}</p>
@@ -183,19 +181,28 @@ const ProfileDropdown = () => {
               </span>
               <span>&gt;</span>
             </div>
-            <div className="profile-link" onClick={() => handleNavigation("/mybids")}>
+            <div
+              className="profile-link"
+              onClick={() => handleNavigation("/mybids")}
+            >
               <span>
                 <StockOutlined style={{ marginRight: 5 }} /> My Bids
               </span>
               <span>&gt;</span>
             </div>
-            <div className="profile-link" onClick={() => handleNavigation("/myads")}>
+            <div
+              className="profile-link"
+              onClick={() => handleNavigation("/myads")}
+            >
               <span>
                 <StockOutlined style={{ marginRight: 5 }} /> My Ads
               </span>
               <span>&gt;</span>
             </div>
-            <div className="profile-link" onClick={() => handleNavigation("/mywatchlist")}>
+            <div
+              className="profile-link"
+              onClick={() => handleNavigation("/mywatchlist")}
+            >
               <span>
                 <HeartOutlined style={{ marginRight: 5 }} /> Watchlist
               </span>
@@ -230,25 +237,32 @@ const ProfileDropdown = () => {
             Close
           </Button>,
           isEditing && (
-            <Button key="save" type="primary" onClick={handleSaveChanges} loading={loading}>
+            <Button
+              key="save"
+              type="primary"
+              onClick={handleSaveChanges}
+              loading={loading}
+            >
               Save Changes
             </Button>
           ),
           !isEditing && (
-            <Button key="edit" type="primary" onClick={() => setIsEditing(true)}>
+            <Button
+              key="edit"
+              type="primary"
+              onClick={() => setIsEditing(true)}
+            >
               Edit Profile
             </Button>
           ),
         ]}
       >
-        {/* Loading spinner or error message */}
         {loading ? (
           <Spin size="large" style={{ alignContent: "center" }} />
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : profileData ? (
           <Form layout="vertical">
-            {/* Profile Form Fields */}
             <Form.Item label="First Name">
               <Input
                 value={profileData.firstName || ""}

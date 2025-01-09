@@ -29,33 +29,26 @@ const AdCard = ({
   listingDate,
   bidAcceptTill,
 }) => {
-
-  
-  
-  const [isInWatchlist, setIsInWatchlist] = useState(false); 
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [timeLeft, setTimeLeft] = useState(""); // Time left state
   const userId = Cookies.get("userId"); // Fetch user ID from cookies
 
-
   const calculateTimeLeft = () => {
-    const now = new Date(); 
-    const listingStart = new Date(listingDate); 
-    const bidEnd = new Date(bidAcceptTill); 
-  
-   
+    const now = new Date();
+    const listingStart = new Date(listingDate);
+    const bidEnd = new Date(bidAcceptTill);
+
     if (now < listingStart) {
       return "Listing not yet started";
     }
-  
-    
+
     const diff = bidEnd - now;
-  
+
     if (diff > 0) {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  
-      
+
       if (days > 0) {
         return `${days} day${days > 1 ? "s" : ""} left`;
       } else if (hours > 0) {
@@ -67,22 +60,17 @@ const AdCard = ({
       return "Closed";
     }
   };
-  
-  
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-  
-    return () => clearInterval(interval); 
+
+    return () => clearInterval(interval);
   }, [listingDate, bidAcceptTill]);
-
-
 
   const handleAddToWatchlist = async () => {
     try {
-       
       const response = await axios.post(
         `${baseuri}/cars/addtowatchlist/${carId}/${userId}`
       );
@@ -93,7 +81,7 @@ const AdCard = ({
 
       if (response.status === 201) {
         message.success("Car added to watchlist!");
-        setIsInWatchlist(true); 
+        setIsInWatchlist(true);
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -102,7 +90,6 @@ const AdCard = ({
         message.error("Failed to add to watchlist. Please try again.");
       }
     } finally {
-       
     }
   };
 
@@ -111,15 +98,9 @@ const AdCard = ({
       <div className="vehDiv">
         {/* Toggle Heart Icon */}
         {isInWatchlist ? (
-          <HeartFilled
-            className="Hicon"
-            onClick={handleAddToWatchlist} 
-          />
+          <HeartFilled className="Hicon" onClick={handleAddToWatchlist} />
         ) : (
-          <HeartOutlined
-            className="Hicon"
-            onClick={handleAddToWatchlist} 
-          />
+          <HeartOutlined className="Hicon" onClick={handleAddToWatchlist} />
         )}
 
         <img alt="vehicle" src={imageSrc} className="vehicle-image" />
