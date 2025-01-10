@@ -243,7 +243,9 @@ const CarDetails = () => {
             </div>
           </div>
         </div>
+       
       </div>
+      <SimilarCars />
       <CustomModal
         isVisible={isModalVisible}
         title={modalTitle}
@@ -255,7 +257,7 @@ const CarDetails = () => {
       />
       {loading && <Spin size="large" tip="Loading..." />}
       {error && <div>{error}</div>}
-      <SimilarCars />
+      
       <Footer />
     </div>
   );

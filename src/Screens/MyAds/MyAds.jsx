@@ -73,6 +73,11 @@ const MyAds = () => {
     };
   }, [loading, pagination.page]);
 
+ 
+  
+
+ 
+
   return (
     <>
       <NavbarLoggedIn />
@@ -86,15 +91,16 @@ const MyAds = () => {
 
         <div className="myAds-cards">
           {loading ? (
-            <Loader /> // Display loader while fetching ads
+            <Loader /> 
           ) : adsData.length > 0 ? (
             adsData.map((ad, index) => (
               <MyAdsCard
+                carId={ad._id}
                 key={index}
-                imageSrc={ad.pictures[0]} // Assuming the first picture is the main image
+                imageSrc={ad.pictures[0]} 
                 title={ad.carTitle}
                 location={ad.location}
-                timeAgo={<TimeAgo date={ad.listingDate} />} // Time ago for listing date
+                timeAgo={<TimeAgo date={ad.listingDate} />} 
                 year={ad.model}
                 mileage={ad.mileage}
                 fuel={ad.fuel}
@@ -105,14 +111,56 @@ const MyAds = () => {
                 timer={
                   <Countdown
                     date={new Date(ad.bidAcceptTill)}
-                    daysInHours={true}
-                    renderer={({ hours, minutes, seconds, completed }) => {
+                    renderer={({ days, hours, minutes, seconds, completed }) => {
                       if (completed) {
                         return <span>Expired</span>;
                       }
+              
+                      if (days > 30) {
+                        const months = Math.floor(days / 30);
+                        return (
+                          <span>
+                            {months} month{months > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (days > 7) {
+                        const weeks = Math.floor(days / 7);
+                        return (
+                          <span>
+                            {weeks} week{weeks > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (days > 0) {
+                        return (
+                          <span>
+                            {days} day{days > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (hours > 0) {
+                        return (
+                          <span>
+                            {hours} hour{hours > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (minutes > 0) {
+                        return (
+                          <span>
+                            {minutes} minute{minutes > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
                       return (
                         <span>
-                          {hours}h {minutes}m {seconds}s
+                          {seconds} second{seconds > 1 ? "s" : ""} left
                         </span>
                       );
                     }}

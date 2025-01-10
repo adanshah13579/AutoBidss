@@ -4,6 +4,7 @@ import { ArrowDownOutlined } from "@ant-design/icons";
 import Footer from "../../components/Footer/Footer";
 import {  fetchearliestcar } from "../../../RESTAPI/homepage/homepage";
 import AdCard from "../../components/DetailsCard/AdCard";
+import TimeAgo from "react-timeago";
 
 
 const EarliestCars = () => {
@@ -50,12 +51,12 @@ const EarliestCars = () => {
            <AdCard
            carId={ad._id}  
               imageSrc={ad.pictures}
-              year={ad.year}
+              year={ad.make}
               mileage={ad.mileage}
               fuel={ad.fuel}
               engine={ad.engine}
               location={ad.location}
-              timeAgo={ad.timeAgo}
+              timeAgo={<TimeAgo date={ad.listingDate} />}
               title={ad.title}
               currentBid={ad.highestCurrentBid}
               bidAcceptTill={ad.timeLeft}

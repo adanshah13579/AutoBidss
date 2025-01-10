@@ -4,6 +4,7 @@ import { ArrowDownOutlined } from "@ant-design/icons";
 import AdCard from "../../components/DetailsCard/AdCard";
 import { fetchSimilarCars } from "../../../RESTAPI/homepage/homepage";
 import { useParams } from "react-router-dom";
+import TimeAgo from "react-timeago";
 
 const SimilarCars = () => {
   const [adsData, setAdsData] = useState([]); // State to store fetched similar cars data
@@ -53,12 +54,12 @@ const SimilarCars = () => {
                 key={ad._id}
                 carId={ad._id}
                 imageSrc={ad.pictures}
-                year={ad.year}
+                year={ad.make}
                 mileage={ad.mileage}
                 fuel={ad.fuel}
                 engine={ad.engine}
                 location={ad.location}
-                timeAgo={ad.timeAgo}
+                 timeAgo={<TimeAgo date={ad.listingDate} />}
                 title={ad.title}
                 currentBid={ad.highestCurrentBid}
                 bidAcceptTill={ad.timeLeft}

@@ -8,6 +8,7 @@ import X from "../../assets/svgs/x.svg";
 import YT from "../../assets/svgs/yt.svg";
 import Insta from "../../assets/svgs/insta.svg";
 import { Link } from "react-router-dom";
+import CarReportPage from "../cartreportpage/carreportpage";
 
 const Footer = () => {
   return (
@@ -83,6 +84,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+     
     </footer>
   );
 };

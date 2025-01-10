@@ -5,6 +5,8 @@ import NavbarLoggedIn from "../../components/NavbarLoggedIn/navbarLoggedIn";
 import Footer from "../../components/Footer/Footer";
 import { fetchUserWatchlist } from "../../../RESTAPI/Profile/ProfileRoutes";
 import Cookies from "js-cookie";
+import Countdown from "react-countdown";
+import TimeAgo from "react-timeago";
 
 
 const MyWatchlist = () => {
@@ -92,16 +94,16 @@ const userId = Cookies.get("userId");
 
         {/* Cards Section */}
         <div className="myAds-cards">
-        {adsData && adsData.length > 0 ? ( // Ensure adsData is defined and has items
+        {adsData && adsData.length > 0 ? ( 
     adsData.map((ad, index) => (
               <MyAdsCard
                 
                 key={index}
                 carId={ad._id}
-                imageSrc={ad.pictures[0]} // Assuming the first picture is the main image
+                imageSrc={ad.pictures[0]} 
                 title={ad.carTitle}
                 location={ad.location}
-                timeAgo={"Time ago"} // Add a real timestamp or time logic if needed
+                timeAgo={<TimeAgo date={ad.listingDate} />} 
                 year={ad.model}
                 mileage={ad.mileage}
                 fuel={ad.fuel}
@@ -109,7 +111,64 @@ const userId = Cookies.get("userId");
                 transmission={ad.transmission}
                 highestBid={ad.highestBid || "N/A"}
                 buyNowPrice={ad.buyNowPrice || "N/A"}
-                timer={ad.bidAcceptTill} // Updated timer logic
+                timer={
+                  <Countdown
+                    date={new Date(ad.bidAcceptTill)}
+                    renderer={({ days, hours, minutes, seconds, completed }) => {
+                      if (completed) {
+                        return <span>Expired</span>;
+                      }
+              
+                      if (days > 30) {
+                        const months = Math.floor(days / 30);
+                        return (
+                          <span>
+                            {months} month{months > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (days > 7) {
+                        const weeks = Math.floor(days / 7);
+                        return (
+                          <span>
+                            {weeks} week{weeks > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (days > 0) {
+                        return (
+                          <span>
+                            {days} day{days > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (hours > 0) {
+                        return (
+                          <span>
+                            {hours} hour{hours > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      if (minutes > 0) {
+                        return (
+                          <span>
+                            {minutes} minute{minutes > 1 ? "s" : ""} left
+                          </span>
+                        );
+                      }
+              
+                      return (
+                        <span>
+                          {seconds} second{seconds > 1 ? "s" : ""} left
+                        </span>
+                      );
+                    }}
+                  />
+                }
                 fromHomePage={true}
               />
             ))

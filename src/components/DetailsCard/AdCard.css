@@ -1,6 +1,6 @@
 .vehicle-card {
-  width: 30%;
-  max-width: 30%;
+  min-width: 300px;
+  max-width: 300px;
   height: auto; /* Adjust height to fit content dynamically */
   padding: 0px;
   display: flex;

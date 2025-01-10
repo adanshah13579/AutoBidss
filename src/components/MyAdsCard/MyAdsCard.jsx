@@ -10,7 +10,7 @@ import {
 import { message } from "antd";
 import { baseuri } from "../../../BaseUri/baseuri";
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import {useNavigate } from "react-router-dom"; 
 import "./MyAdsCard.css";
 
 const MyAdsCard = ({
@@ -33,6 +33,10 @@ const MyAdsCard = ({
 
   const userId = Cookies.get("userId");
   const cleanedUserId = userId?.trim();
+const navigate=useNavigate()
+
+
+
 
   const handleRemoveFromWatchlist = async () => {
     if (!userId) {
@@ -55,6 +59,10 @@ const MyAdsCard = ({
     } finally {
     }
   };
+  const handleNavigation = (path) => {
+    navigate(path);
+  
+  };
 
   return (
     <div>
@@ -74,8 +82,8 @@ const MyAdsCard = ({
             )}
             <img src={imageSrc} alt="Car" className="car-image" />
           </div>
-          <Link to={`/carDetails/${carId}`}>
-          <div className="car-content">
+          
+          <div className="car-content" onClick={()=>handleNavigation(`/carDetails/${carId}`)}>
             <div className="titleandchat">
               <h3>{title}</h3>
               <MessageOutlined className="chat-icon" />
@@ -111,7 +119,7 @@ const MyAdsCard = ({
               <button className="bid-button">Bid Now</button>
             </div>
           </div>
-          </Link>
+         
         </div>
      
     </div>

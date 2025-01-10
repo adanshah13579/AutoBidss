@@ -13,7 +13,7 @@ import {
 } from "@ant-design/icons";
 import { Card } from "antd";
 import "./AdCard.css";
-import { baseuri } from "../../../BaseUri/baseuri"; // Import your base URI
+import { baseuri } from "../../../BaseUri/baseuri"; 
 import { Link } from "react-router-dom";
 
 const AdCard = ({

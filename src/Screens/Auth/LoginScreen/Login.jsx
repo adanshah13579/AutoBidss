@@ -38,17 +38,23 @@ const LoginComponent = () => {
       Cookies.set("userId", result?.data?.payload?.userId, { expires: 7 });
       Cookies.set("userType", result?.data?.payload?.userType, { expires: 7 });
       Cookies.set("name", result?.data?.payload?.name, { expires: 7 });
-
+    
       setLoading(false); // End login process
-
+    
       message.success("You have successfully logged in.");
-
+    
       // Redirect after 2 seconds
       setTimeout(() => navigate("/home"), 2000);
     } else {
-      alert(result.error || "Login failed. Please try again.");
+      // Handle wrong password or other errors
+      if (result?.error === "Incorrect password") {
+        message.error("Wrong password. Please try again."); 
+      } else {
+        message.error(result?.error || "Login failed. Please try again."); // General error message
+      }
       setLoading(false); // End login process
     }
+    
   };
 
   return (
