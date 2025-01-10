@@ -9,7 +9,17 @@ const CustomModal = ({ isVisible, title, content, onOk, onCancel, singleButton, 
     footer={
       singleButton
         ? [
-            <Button key="confirm" type={type === "error" ? "danger" : "primary"} onClick={onOk}>
+            <Button
+              key="confirm"
+              type={type === "error" ? "danger" : "primary"}
+              onClick={onOk}
+              style={{
+                backgroundColor: "#2B59FF", // Blue color for OK button
+                borderColor: "#2B59FF",
+                color: "#ffffff", // White text color
+                // Optional: Add border color
+              }}
+            >
               OK
             </Button>,
           ]
@@ -17,7 +27,17 @@ const CustomModal = ({ isVisible, title, content, onOk, onCancel, singleButton, 
             <Button key="cancel" onClick={onCancel}>
               Cancel
             </Button>,
-            <Button key="confirm" type={type === "error" ? "danger" : "primary"} onClick={onOk}>
+            <Button
+              key="confirm"
+              type={type === "error" ? "danger" : "primary"}
+              onClick={onOk}
+              style={{
+                backgroundColor: "#2B59FF", // Blue color for OK button
+                borderColor: "#2B59FF",
+                font:"white"// Optional: Add border color
+                
+              }}
+            >
               OK
             </Button>,
           ]

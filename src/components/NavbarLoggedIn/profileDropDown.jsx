@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Badge, Avatar, Modal, Button, Input, Spin, Form } from "antd";
+import { Badge, Avatar, Button, Input, Spin, Form } from "antd";
 import {
   HeartOutlined,
   LockOutlined,
@@ -19,11 +19,9 @@ const ProfileDropdown = () => {
   // State hooks
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false);
-  const [isChangePasswordModalVisible, setIsChangePasswordModalVisible] =
-    useState(false);
+  const [isChangePasswordModalVisible, setIsChangePasswordModalVisible] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const [initialProfileData, setInitialProfileData] = useState(null);
@@ -37,7 +35,6 @@ const ProfileDropdown = () => {
 
   const handleCancelChangePassword = () => {
     setIsChangePasswordModalVisible(false);
-    setOldPassword("");
     setNewPassword("");
     setConfirmPassword("");
   };
@@ -65,24 +62,20 @@ const ProfileDropdown = () => {
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Toggle dropdown visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Show Modal and fetch profile data
   const showModal = async () => {
     setIsModalVisible(true);
     await fetchProfileData();
   };
 
-  // Hide Modal and reset editing state
   const handleCancel = () => {
     setIsModalVisible(false);
     setIsEditing(false);
   };
 
-  // Fetch profile data from API
   const fetchProfileData = async () => {
     setLoading(true);
     setError(null);
@@ -103,13 +96,11 @@ const ProfileDropdown = () => {
     }
   };
 
-  // Handle navigation
   const handleNavigation = (path) => {
     navigate(path);
     setIsMenuOpen(false);
   };
 
-  // Handle logout
   const handleLogout = () => {
     Cookies.remove("name");
     Cookies.remove("email");
@@ -154,7 +145,6 @@ const ProfileDropdown = () => {
 
   return (
     <div style={{ position: "relative" }} ref={dropdownRef}>
-      {/* Avatar with Badge */}
       <Badge showZero={false} count={0} size="small">
         <Avatar
           style={{ backgroundColor: "transparent", color: "#2B59FF" }}
@@ -165,7 +155,6 @@ const ProfileDropdown = () => {
         />
       </Badge>
 
-      {/* Dropdown Menu */}
       {isMenuOpen && (
         <div className="profile-menu">
           <div className="profile-header">
@@ -181,28 +170,19 @@ const ProfileDropdown = () => {
               </span>
               <span>&gt;</span>
             </div>
-            <div
-              className="profile-link"
-              onClick={() => handleNavigation("/mybids")}
-            >
+            <div className="profile-link" onClick={() => handleNavigation("/mybids")}>
               <span>
                 <StockOutlined style={{ marginRight: 5 }} /> My Bids
               </span>
               <span>&gt;</span>
             </div>
-            <div
-              className="profile-link"
-              onClick={() => handleNavigation("/myads")}
-            >
+            <div className="profile-link" onClick={() => handleNavigation("/myads")}>
               <span>
                 <StockOutlined style={{ marginRight: 5 }} /> My Ads
               </span>
               <span>&gt;</span>
             </div>
-            <div
-              className="profile-link"
-              onClick={() => handleNavigation("/mywatchlist")}
-            >
+            <div className="profile-link" onClick={() => handleNavigation("/mywatchlist")}>
               <span>
                 <HeartOutlined style={{ marginRight: 5 }} /> Watchlist
               </span>
@@ -214,10 +194,7 @@ const ProfileDropdown = () => {
               </span>
               <span>&gt;</span>
             </div>
-            <div
-              className="profile-link"
-              onClick={() => setIsLogoutModalVisible(true)}
-            >
+            <div className="profile-link" onClick={() => setIsLogoutModalVisible(true)}>
               <span>
                 <LogoutOutlined style={{ marginRight: 5 }} /> Log Out
               </span>
@@ -227,133 +204,119 @@ const ProfileDropdown = () => {
         </div>
       )}
 
-      {/* Modal Component */}
-      <Modal
+      {/* Profile Modal */}
+      <CustomModal
+        isVisible={isModalVisible}
         title="My Profile"
-        open={isModalVisible}
+        content={
+          loading ? (
+            <Spin size="large" style={{ alignContent: "center" }} />
+          ) : error ? (
+            <p style={{ color: "red" }}>{error}</p>
+          ) : profileData ? (
+            <Form layout="vertical">
+              <Form.Item label="First Name">
+                <Input
+                  value={profileData.firstName || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, firstName: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Last Name">
+                <Input
+                  value={profileData.lastName || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, lastName: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Email">
+                <Input
+                  value={profileData.email || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, email: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="City">
+                <Input
+                  value={profileData.city || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, city: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Country">
+                <Input
+                  value={profileData.country || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, country: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Account Status">
+                <Input value={profileData.AccountStatus || ""} disabled />
+              </Form.Item>
+
+              <Form.Item label="User Type">
+                <Input value={profileData.userType || ""} disabled />
+              </Form.Item>
+            </Form>
+          ) : (
+            <p>No profile data available.</p>
+          )
+        }
+        onOk={handleSaveChanges}
         onCancel={handleCancel}
-        footer={[
-          <Button key="close" onClick={handleCancel}>
-            Close
-          </Button>,
-          isEditing && (
-            <Button
-              key="save"
-              type="primary"
-              onClick={handleSaveChanges}
-              loading={loading}
-            >
-              Save Changes
-            </Button>
-          ),
-          !isEditing && (
-            <Button
-              key="edit"
-              type="primary"
-              onClick={() => setIsEditing(true)}
-            >
-              Edit Profile
-            </Button>
-          ),
-        ]}
-      >
-        {loading ? (
-          <Spin size="large" style={{ alignContent: "center" }} />
-        ) : error ? (
-          <p style={{ color: "red" }}>{error}</p>
-        ) : profileData ? (
-          <Form layout="vertical">
-            <Form.Item label="First Name">
-              <Input
-                value={profileData.firstName || ""}
-                onChange={(e) =>
-                  setProfileData({ ...profileData, firstName: e.target.value })
-                }
-                disabled={!isEditing}
-              />
-            </Form.Item>
+        singleButton={false}
+      />
 
-            <Form.Item label="Last Name">
-              <Input
-                value={profileData.lastName || ""}
-                onChange={(e) =>
-                  setProfileData({ ...profileData, lastName: e.target.value })
-                }
-                disabled={!isEditing}
-              />
-            </Form.Item>
-
-            <Form.Item label="Email">
-              <Input
-                value={profileData.email || ""}
-                onChange={(e) =>
-                  setProfileData({ ...profileData, email: e.target.value })
-                }
-                disabled={!isEditing}
-              />
-            </Form.Item>
-
-            <Form.Item label="City">
-              <Input
-                value={profileData.city || ""}
-                onChange={(e) =>
-                  setProfileData({ ...profileData, city: e.target.value })
-                }
-                disabled={!isEditing}
-              />
-            </Form.Item>
-
-            <Form.Item label="Country">
-              <Input
-                value={profileData.country || ""}
-                onChange={(e) =>
-                  setProfileData({ ...profileData, country: e.target.value })
-                }
-                disabled={!isEditing}
-              />
-            </Form.Item>
-
-            <Form.Item label="Account Status">
-              <Input value={profileData.AccountStatus || ""} disabled />
-            </Form.Item>
-
-            <Form.Item label="User Type">
-              <Input value={profileData.userType || ""} disabled />
-            </Form.Item>
-          </Form>
-        ) : (
-          <p>No profile data available.</p>
-        )}
-      </Modal>
-      <Modal
+      {/* Change Password Modal */}
+      <CustomModal
+        isVisible={isChangePasswordModalVisible}
         title="Change Password"
-        visible={isChangePasswordModalVisible}
+        content={
+          <>
+            <Input.Password
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              style={{ marginBottom: 10 }}
+            />
+            <Input.Password
+              placeholder="Confirm New Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              style={{ marginBottom: 20 }}
+            />
+          </>
+        }
+        onOk={handleChangePasswordSubmit}
         onCancel={handleCancelChangePassword}
-        footer={null}
-        width={400}
-      >
-        <Input.Password
-          placeholder="New Password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          style={{ marginBottom: 10 }}
-        />
-        <Input.Password
-          placeholder="Confirm New Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          style={{ marginBottom: 20 }}
-        />
-        <Button type="primary" onClick={handleChangePasswordSubmit} block>
-          Change Password
-        </Button>
-      </Modal>
+        singleButton={true}
+        type="error"
+      />
+
+      {/* Logout Confirmation Modal */}
       <CustomModal
         isVisible={isLogoutModalVisible}
         title="Confirm Logout"
         content="Are you sure you want to log out?"
         onOk={handleLogout}
         onCancel={() => setIsLogoutModalVisible(false)}
+        singleButton={true}
+        type="error"
       />
     </div>
   );

@@ -5,6 +5,7 @@ import { Input } from "antd";
 import { LockFilled } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ResetPasswordRoute } from "../../../../RESTAPI/Authentication/AuthenticationRoutes";
+import CustomModal from "../../../components/Modals/CustomModal";
 
 const ResetPass = () => {
   const [newPass, setNewPass] = useState("");

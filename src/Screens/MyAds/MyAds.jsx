@@ -81,18 +81,16 @@ const MyAds = () => {
   return (
     <>
       <NavbarLoggedIn />
-
+  
       <div className="myAdsScreen">
         <div className="myAds-header">
           <h2>My Ads</h2>
         </div>
-
+  
         {error && <div className="error">{error}</div>}
-
+  
         <div className="myAds-cards">
-          {loading ? (
-            <Loader /> 
-          ) : adsData.length > 0 ? (
+          {adsData.length > 0 ? (
             adsData.map((ad, index) => (
               <MyAdsCard
                 carId={ad._id}
@@ -173,11 +171,14 @@ const MyAds = () => {
             <div>No ads available</div>
           )}
         </div>
+        {loading && <Loader />}
       </div>
-
+       
+      
       <Footer />
     </>
   );
+  
 };
 
 export default MyAds;

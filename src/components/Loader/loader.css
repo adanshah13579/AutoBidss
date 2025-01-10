@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full screen height */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional backdrop */
-    z-index: 9999;
+    background-color: transparent; /* Optional backdrop */
+    z-index: 99;
     position: fixed;
     top: 0;
     left: 0;

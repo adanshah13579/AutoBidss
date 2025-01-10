@@ -9,6 +9,7 @@ import YT from "../../assets/svgs/yt.svg";
 import Insta from "../../assets/svgs/insta.svg";
 import { Link } from "react-router-dom";
 import CarReportPage from "../cartreportpage/carreportpage";
+import CarReportModal from "../CarReportModal/CarReportModal";
 
 const Footer = () => {
   return (
@@ -60,7 +61,7 @@ const Footer = () => {
               </div>
             </button>
           </div>
-
+          
           <div className="footer-bottom">
             <div className="social-icons">
               <a href="#">
