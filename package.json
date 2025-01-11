@@ -16,9 +16,12 @@
     "antd": "^5.22.5",
     "axios": "^1.7.9",
     "js-cookie": "^3.0.5",
+<<<<<<< HEAD
     "lg-thumbnail": "^1.2.1",
     "lg-video": "^1.4.0",
     "lightgallery": "^2.8.2",
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     "react": "^18.3.1",
     "react-countdown": "^2.3.6",
     "react-dom": "^18.3.1",

@@ -55,7 +55,10 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 }
 .galleryAndDetails {
   display: flex;
@@ -76,10 +79,14 @@
   padding-bottom: 15px;
   border-radius: 20px;
   border: 1px solid rgb(225, 225, 225);
+<<<<<<< HEAD
   
  
 }
 
+=======
+}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 .postDate {
   font-weight: 400;
   text-align: left;
@@ -123,7 +130,10 @@
   font-size: 1.1rem;
   justify-content: space-around;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 .spanIcon {
   margin-right: 10px;
 }

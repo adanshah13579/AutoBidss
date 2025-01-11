@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
 import "./Forgot.css";
 import Car from "../../../assets/Auth/Car.svg";
-import { Input, Modal, Button } from "antd";
+import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { SendOtpRoute } from "../../../../RESTAPI/Authentication/AuthenticationRoutes";
+import CustomModal from "../../../components/Modals/CustomModal";
+ // Adjust the path as needed
 
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
@@ -93,20 +95,15 @@ const ForgotPass = () => {
         </div>
       </div>
 
-      {/* Modal for feedback */}
-      <Modal
+      {/* Custom Modal for feedback */}
+      <CustomModal
+        isVisible={isModalVisible}
         title="Forgot Password"
-        visible={isModalVisible}
+        content={modalMessage}
         onOk={() => setIsModalVisible(false)}
         onCancel={() => setIsModalVisible(false)}
-        footer={[
-          <Button key="ok" type="primary" onClick={() => setIsModalVisible(false)}>
-            OK
-          </Button>,
-        ]}
-      >
-        <p>{modalMessage}</p>
-      </Modal>
+        singleButton={true}
+      />
     </div>
   );
 };

@@ -1,0 +1,278 @@
+/* Overlay for the modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Main modal container */
+  .modal-content {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    height: 90vh; /* Full modal height */
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Header: fixed at the top */
+  .modal-content h2 {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1010;
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+.modal-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    position: relative; 
+    z-index: 1001;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: rgb(31, 119, 201);
+    cursor: pointer;
+    z-index: 1001;
+    margin-right: 5px;
+  }
+  
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: auto;
+  }
+  
+ 
+.scrollable-content {
+    flex-grow: 1;
+    overflow-y: auto; 
+    padding: 30px;
+    max-height: calc(90vh - 60px); 
+  }
+  
+  .scrollable-content::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #007bff; 
+    border-radius: 4px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  
+  
+  
+  .category-section {
+    margin-bottom: 20px;
+  }
+  
+  .category-section h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .field-row {
+    margin-bottom: 20px;
+  }
+  
+  .field-row h4 {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .modal-buttons {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    z-index: 1010;
+  }
+  
+  .modal-save {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .modal-save:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-cancel {
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .modal-cancel:hover {
+    background-color: #e0e0e0;
+  }
+.modal-header h2,
+.modal-header h3,
+.modal-header h4,
+.scrollable-content {
+  text-transform: capitalize;
+}
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.radio-option input {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  appearance: none;
+  border: 2px solid #333; /* Default border */
+  border-radius: 50%; /* Circular shape */
+  background-color: transparent; /* Default background */
+  cursor: pointer;
+}
+
+.radio-option input:checked {
+  background-color: currentColor; /* Use the assigned color */
+  border-color: currentColor; /* Match border to color */
+}
+
+.radio-option:nth-child(1) input {
+  color: #28a745; /* Green */
+}
+
+.radio-option:nth-child(2) input {
+  color: rgb(243, 243, 7); /* Yellow */
+}
+
+.radio-option:nth-child(3) input {
+  color: rgb(207, 22, 22); /* Red */
+}
+
+.radio-option:nth-child(4) input {
+  color: #353538; /* Gray */
+}
+
+.radio-option:nth-child(5) input {
+  color: #2034eb; /* Blue */
+}
+
+.radio-option input + label {
+  cursor: pointer;
+}
+.radio-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.radio-item input {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  appearance: none;
+  border: 2px solid #333; 
+  border-radius: 50%; 
+  background-color: transparent; 
+  cursor: pointer;
+}
+
+/* Color rules for radio buttons using nth-child */
+.radio-item:nth-child(1) input {
+  color: #28a745; /* Green */
+}
+
+.radio-item:nth-child(2) input {
+  color: rgb(243, 243, 7); /* Yellow */
+}
+
+.radio-item:nth-child(3) input {
+  color: rgb(207, 22, 22); /* Red */
+}
+
+.radio-item:nth-child(4) input {
+  color: #353538; /* Gray */
+}
+
+.radio-item:nth-child(5) input {
+  color: #2034eb; /* Blue */
+}
+
+.radio-item input:checked {
+  background-color: currentColor; /* Color from the color property */
+  border-color: currentColor; 
+}
+
+.radio-item label {
+  font-size: 0.8rem;
+  color: #000000;
+  cursor: pointer;
+}

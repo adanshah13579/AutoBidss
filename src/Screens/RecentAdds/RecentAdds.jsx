@@ -5,6 +5,7 @@ import Filter from "../../components/HomePageFilter/Filters";
 import MyAdsCard from "../../components/MyAdsCard/MyAdsCard";
 import NavbarLoggedIn from "../../components/NavbarLoggedIn/navbarLoggedIn";
 import Footer from "../../components/Footer/Footer";
+<<<<<<< HEAD
 import { fetchallcars, filteredCars, logoCar } from "../../../RESTAPI/homepage/homepage";
 import { useParams } from "react-router-dom";
 
@@ -13,6 +14,10 @@ const RecentAdds = () => {
   const [logosearchdata, setLogosearchdata] = useState(null);
   const [cars, setCars] = useState([]);
   const [filteredCar, setFilterCar] = useState(null);
+=======
+const RecentAdds = () => {
+  const [page, setpage] = useState(1);
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const [filters, setFilters] = useState({
     priceRange: { min: "", max: "" },
     year: { from: "", to: "" },
@@ -23,6 +28,7 @@ const RecentAdds = () => {
     transmission: [],
   });
 
+<<<<<<< HEAD
   const { makes } = useParams();
   const itemsPerPage = 10; // Number of cars per page
 
@@ -192,4 +198,51 @@ const RecentAdds = () => {
   );
 };
 
+=======
+  return (
+    <div>
+      <NavbarLoggedIn/>
+      <div className="mainHome">
+        <Filter setFilters={setFilters} filters={filters} />
+        <div className="AdsDiv">
+          <h3>Recent Ads</h3>
+          <MyAdsCard></MyAdsCard>
+          <MyAdsCard></MyAdsCard>
+          <MyAdsCard></MyAdsCard>
+          <MyAdsCard></MyAdsCard>
+          <MyAdsCard></MyAdsCard>
+        </div>
+      </div>
+      <div className="paginationHomepageLoggedIn">
+        <Button
+          onClick={() => setpage(1)}
+          className={page == 1 ? "buttonActive" : ""}
+        >
+          1
+        </Button>
+        <Button
+          onClick={() => setpage(2)}
+          className={page == 2 ? "buttonActive" : ""}
+        >
+          2
+        </Button>
+        <Button
+          onClick={() => setpage(3)}
+          className={page == 3 ? "buttonActive" : ""}
+        >
+          3
+        </Button>
+
+        <Button
+          onClick={() => setpage(4)}
+          className={page == 4 ? "buttonActive" : ""}
+        >
+          {">"}
+        </Button>
+      </div>
+      <Footer/>
+    </div>
+  );
+};
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 export default RecentAdds;

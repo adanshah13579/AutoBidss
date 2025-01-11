@@ -13,9 +13,14 @@ import {
 } from "@ant-design/icons";
 import { Card } from "antd";
 import "./AdCard.css";
+<<<<<<< HEAD
 import { baseuri } from "../../../BaseUri/baseuri"; // Import your base URI
 import { Link } from "react-router-dom";
 import {useRemoveFromWatchlist} from "../../../RESTAPI/Profile/ProfileRoutes"; // Import the custom hook for removing from watchlist
+=======
+import { baseuri } from "../../../BaseUri/baseuri"; 
+import { Link } from "react-router-dom";
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
 const AdCard = ({
   carId,
@@ -27,6 +32,7 @@ const AdCard = ({
   location,
   timeAgo,
   currentBid,
+<<<<<<< HEAD
   listingdate,
   bidAcceptTill,
 }) => {
@@ -41,17 +47,48 @@ const AdCard = ({
     const now = new Date();
     const end = new Date(bidAcceptTill);
     const diff = end - now;
+=======
+  listingDate,
+  bidAcceptTill,
+}) => {
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(""); // Time left state
+  const userId = Cookies.get("userId"); // Fetch user ID from cookies
+
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const listingStart = new Date(listingDate);
+    const bidEnd = new Date(bidAcceptTill);
+
+    if (now < listingStart) {
+      return "Listing not yet started";
+    }
+
+    const diff = bidEnd - now;
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
     if (diff > 0) {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
+<<<<<<< HEAD
       return `${days}d ${hours}h ${minutes}m left`;
+=======
+
+      if (days > 0) {
+        return `${days} day${days > 1 ? "s" : ""} left`;
+      } else if (hours > 0) {
+        return `${hours} hour${hours > 1 ? "s" : ""} left`;
+      } else {
+        return `${minutes} minute${minutes > 1 ? "s" : ""} left`;
+      }
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     } else {
       return "Closed";
     }
   };
 
+<<<<<<< HEAD
   // Update time left periodically
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,6 +101,18 @@ const AdCard = ({
   const handleAddToWatchlist = async () => {
     try {
       setLoading(true); // Start loading
+=======
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [listingDate, bidAcceptTill]);
+
+  const handleAddToWatchlist = async () => {
+    try {
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       const response = await axios.post(
         `${baseuri}/cars/addtowatchlist/${carId}/${userId}`
       );
@@ -74,7 +123,11 @@ const AdCard = ({
 
       if (response.status === 201) {
         message.success("Car added to watchlist!");
+<<<<<<< HEAD
         setIsInWatchlist(true); // Mark as added
+=======
+        setIsInWatchlist(true);
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -83,6 +136,7 @@ const AdCard = ({
         message.error("Failed to add to watchlist. Please try again.");
       }
     } finally {
+<<<<<<< HEAD
       setLoading(false); // Stop loading
     }
   };
@@ -95,12 +149,15 @@ const AdCard = ({
       handleRemoveFromWatchlist();
     } else {
       handleAddToWatchlist();
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     }
   };
 
   return (
     <Card className="vehicle-card">
       <div className="vehDiv">
+<<<<<<< HEAD
         {isInWatchlist ? (
           <HeartFilled
             className="Hicon"
@@ -115,6 +172,16 @@ const AdCard = ({
         <Link to={`/carDetails/${carId}`}>
           <img alt="vehicle" src={imageSrc} className="vehicle-image" />
         </Link>
+=======
+        {/* Toggle Heart Icon */}
+        {isInWatchlist ? (
+          <HeartFilled className="Hicon" onClick={handleAddToWatchlist} />
+        ) : (
+          <HeartOutlined className="Hicon" onClick={handleAddToWatchlist} />
+        )}
+
+        <img alt="vehicle" src={imageSrc} className="vehicle-image" />
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       </div>
       <Link to={`/carDetails/${carId}`}>
         <div className="veh-card2">

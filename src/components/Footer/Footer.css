@@ -6,12 +6,19 @@
   font-family: Arial, sans-serif;
   line-height: 1.6;
   width: 100%;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 }
 
 .footer-top {
   display: flex;
   justify-content: flex-start;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   flex-wrap: wrap;
   border-bottom: 1px solid #444;
   padding-bottom: 20px;

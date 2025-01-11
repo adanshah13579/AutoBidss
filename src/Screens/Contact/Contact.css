@@ -35,7 +35,10 @@
         width: 600px;
         height: 280px;
         padding-top:  0;
+<<<<<<< HEAD
         color: black;
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
     }
 
@@ -70,7 +73,10 @@
      }
      .anchorIconcs{
       color: black;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
      }
     /* .main{
         display: flex;
@@ -80,6 +86,7 @@
             
     .contact-form {
         background: white;
+<<<<<<< HEAD
         box-shadow: 0 4px 6px rgba(121, 120, 120, 0.1);
         padding: 20px;
         border-radius: 15px;
@@ -88,18 +95,33 @@
         z-index: 2;
         position: relative; 
         text-align: left;
+=======
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+        width: 600px;
+        margin: 20px auto;
+        z-index: 2;
+        position: relative; 
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       }
       
       .contact-form .form-group {
         display: flex;
         gap: 10px;
         margin-bottom: 15px;
+<<<<<<< HEAD
         text-align: left;
       }
       .form-label{
         text-align: left;
 
       }
+=======
+      }
+      
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       .contact-form .form-group div {
         flex: 1;
       }
@@ -108,7 +130,10 @@
         display: block;
         text-align: center;
         margin-bottom: 5px;
+<<<<<<< HEAD
         color: black;
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       }
       
       .contact-form input {
@@ -116,6 +141,7 @@
         border: none;
         border-bottom: 1px solid #0000005f;
         outline: none;
+<<<<<<< HEAD
         background-color: white;
         color: black;
       }
@@ -127,12 +153,22 @@
       .contact-form textarea {
         max-width: 90%;
         min-width: 90%;
+=======
+      }
+      
+      .contact-form textarea {
+        max-width: 100%;
+        min-width: 100%;
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
         height: 100px;
         border: 1px solid #ccc;
         outline: none;
         padding: 10px;
+<<<<<<< HEAD
         background-color: white;
         color: black;
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       }
       
       .contact-form .submit-btn {
@@ -147,7 +183,10 @@
     
     .contactInfo {
         position: relative;
+<<<<<<< HEAD
         background-color: #F8FAFC;
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
         padding-top: 70px;
         z-index: 2;
         display: flex;
@@ -156,7 +195,10 @@
         justify-content: center; /* Center the sections horizontally */
         gap: 20px; /* Space between left and right sections */
         flex-wrap: wrap; /* Allow the sections to wrap if necessary */
+<<<<<<< HEAD
         color: black;
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
        
      
         
@@ -246,12 +288,19 @@
     .subscribeBox button{
         width: 100px;
         height: 35px;
+<<<<<<< HEAD
         font-size: 12px;
         align-content: center;
         margin: 10px;
         padding: 0px;
         background-color: white;
         color:#0a33c7;
+=======
+        font-size: 10px;
+        align-content: center;
+        margin: 10px;
+        padding: 8px;
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
        
     }
 

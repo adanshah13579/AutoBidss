@@ -46,7 +46,12 @@ const LoginComponent = () => {
       // Redirect after 2 seconds
       setTimeout(() => navigate("/home"), 2000);
     } else {
-      alert(result.error || "Login failed. Please try again.");
+      // Handle wrong password or other errors
+      if (result?.error === "Incorrect password") {
+        message.error("Wrong password. Please try again.");
+      } else {
+        message.error(result?.error || "Login failed. Please try again."); // General error message
+      }
       setLoading(false); // End login process
     }
   };
@@ -59,10 +64,17 @@ const LoginComponent = () => {
             <div className="headDiv">
               <h1 className="heading">Drivebidz</h1>
               <h2 className="heading2">Login</h2>
-              <p>Please login to continue to your account.</p>
+              <p style={{ marginBottom: "5px" }}>
+                Please login to continue to your account.
+              </p>
             </div>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="email">Email</label>
+              <label
+                style={{ display: "flex", justifyContent: "start" }}
+                htmlFor="email"
+              >
+                Email
+              </label>
 
               <Input
                 prefix={<UserOutlined style={{ margin: 5 }} />}
@@ -75,7 +87,12 @@ const LoginComponent = () => {
                 required
               />
 
-              <label htmlFor="password">Password</label>
+              <label
+                style={{ display: "flex", justifyContent: "start" }}
+                htmlFor="password"
+              >
+                Password
+              </label>
               <div className="password-container">
                 <Input.Password
                   style={{ height: 45 }}

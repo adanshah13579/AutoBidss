@@ -8,10 +8,17 @@ import Vec from '../../assets/svgs/vector.svg';
 const Contact = () => {
   return (
     <div id='root'>
+<<<<<<< HEAD
     
       <NavbarLoggedIn />
 
       
+=======
+      {/* Navbar Section */}
+      <NavbarLoggedIn />
+
+      {/* Hero Section */}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       <div className='content'>
         <div className='hero-vector'>
           <img src={Vec} alt='Vector' width={'100%'} height={'40%'} />
@@ -47,6 +54,7 @@ const Contact = () => {
       {/* Contact Form Section */}
       <div className='contact-form'>
         <div className='form-group'>
+<<<<<<< HEAD
           <div className='form-label'>
             <label >Your Name</label>
             <input type='text' />
@@ -70,6 +78,31 @@ const Contact = () => {
       </div>
 
       
+=======
+          <div>
+            <label>Your Name</label>
+            <input type='text' />
+          </div>
+          <div>
+            <label>Your Email</label>
+            <input type='email' />
+          </div>
+          <div>
+            <label>Phone Number</label>
+            <input type='text' />
+          </div>
+        </div>
+        <div>
+          <label>Message</label>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button className='submit-btn'>Leave Us a Message</button>
+        </div>
+      </div>
+
+      {/* Contact Information Section */}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       <div className='contactInfo'>
         <div className='leftDetails'>
           <h5>Contact Info</h5>
@@ -89,6 +122,7 @@ const Contact = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
     
       <div className='subscribe'>
         <div className='message'>
@@ -96,6 +130,15 @@ const Contact = () => {
           <p>
             Subscribe for Updates: Stay informed about the latest investor updates, financial results, and announcements by subscribing to our newsletter.
           </p>
+=======
+      {/* Newsletter Subscription Section */}
+      <div className='subscribe'>
+        <div className='message'>
+          <h2>Subscribe to our Newsletter</h2>
+          <h5>
+            Subscribe for Updates: Stay informed about the latest investor updates, financial results, and announcements by subscribing to our newsletter.
+          </h5>
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
         </div>
         <div className='subscribeBox'>
           <input id='input' type='email' placeholder='Enter your Email' />

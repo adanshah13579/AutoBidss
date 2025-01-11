@@ -1,6 +1,11 @@
 .vehicle-card {
+<<<<<<< HEAD
   width: 30%;
   max-width: 30%;
+=======
+  min-width: 300px;
+  max-width: 300px;
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   height: auto; /* Adjust height to fit content dynamically */
   padding: 0px;
   display: flex;
@@ -63,22 +68,40 @@
 
 .vehicle-details {
   font-family: "Inter";
+<<<<<<< HEAD
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+=======
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   margin-top: 10px;
   font-size: clamp(
     0.8rem,
     0.8vw,
     0.8rem
+<<<<<<< HEAD
   ); /* Responsive font size based on viewport width */
+=======
+  );
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   color: #555;
   flex-grow: 1;
 }
 
 .detail-item {
   display: flex;
+<<<<<<< HEAD
   align-items: center;
+=======
+
+  align-items: center;
+  
+  
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   margin-right: 20px;
   white-space: nowrap;
 }
@@ -100,7 +123,11 @@
 }
 
 .bid-amount {
+<<<<<<< HEAD
   font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* Adjust font size responsively */
+=======
+  font-size: clamp(1rem, 1vw, 1rem); /* Adjust font size responsively */
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   color: #333;
   font-weight: 700;
 }
@@ -159,4 +186,8 @@
     justify-content: center;
     align-items: center;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181

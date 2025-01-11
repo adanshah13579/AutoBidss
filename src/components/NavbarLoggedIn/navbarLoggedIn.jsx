@@ -14,13 +14,20 @@ import ProfileDropdown from "./profileDropDown";
 import { Link } from "react-router-dom";
 import { checkUnreadNotifications, fetchUserNotifications } from "../../../RESTAPI/Notifify/notify";
 const { Search } = Input;
+<<<<<<< HEAD
 
 const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
+=======
+import { useNavigate } from "react-router-dom";
+
+const NavbarLoggedIn = () => {
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationIsOpen, notificationsetIsOpen] = useState(false);
   const [hasUnread, setHasUnread] = useState(false);
   const [notifications, setNotifications] = useState([]); 
   const notificationRef = useRef(null);
+<<<<<<< HEAD
 
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState("");
@@ -34,6 +41,10 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
     setLocation(value);
     onLocationUpdate(value); 
   };
+=======
+  const navigate = useNavigate();
+
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
   const userId = Cookies.get("userId");
 
@@ -41,6 +52,7 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
     notificationsetIsOpen(!notificationIsOpen);
   };
 
+<<<<<<< HEAD
 
 
 
@@ -59,6 +71,34 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
       const result = await fetchUserNotifications(userId); // Use userId from cookies
       if (result.success) {
         setNotifications(result.data.notifications); // Set the notifications data
+=======
+  const onSearch = (value, _e, info) => console.log(info?.source, value);
+
+  const onLocationChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+  const onLocationSearch = (value) => {
+    console.log("Loc search:", value);
+  };
+
+
+  useEffect(() => {
+    if (!userId) return; 
+
+    const checkNotifications = async () => {
+      const result = await checkUnreadNotifications(userId); 
+      if (result.success) {
+        setHasUnread(result.data.hasUnread === "yes"); 
+      }
+    };
+
+    const fetchNotifications = async () => {
+      const result = await fetchUserNotifications(userId); 
+      console.log("resulttt",result);
+      
+      if (result.success) {
+        setNotifications(result.data.notifications); 
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       }
     };
 
@@ -82,6 +122,17 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+<<<<<<< HEAD
+=======
+
+
+  const handleNotificationClick = (carId) => {
+    if (carId) {
+      navigate(`/carDetails/${carId}`);
+    }
+  };
+  
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   return (
     <nav className="navbar">
       <div className="logo">
@@ -101,7 +152,11 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
           <Search
             placeholder="What are you looking for?"
             size="middle"
+<<<<<<< HEAD
             onSearch={handleSearch}
+=======
+            onSearch={onSearch}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
             style={{
               width: 300,
             }}
@@ -111,7 +166,12 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
             placeholder="Location"
             optionFilterProp="label"
             style={{ width: 150, marginLeft: 2 }}
+<<<<<<< HEAD
             onChange={handleLocationChange}
+=======
+            onChange={onLocationChange}
+            onSearch={onLocationSearch}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
             options={[
               {
                 value: "Rawalpindi",
@@ -182,7 +242,12 @@ const NavbarLoggedIn = ({ onSearchUpdate, onLocationUpdate }) => {
                     <p>No notifications.</p>
                   ) : (
                     notifications.map((notification) => (
+<<<<<<< HEAD
                       <div key={notification._id} className="notification-item">
+=======
+                      <div key={notification._id} className="notification-item" onClick={() => handleNotificationClick(notification.carId)}
+                      style={{ cursor: "pointer" }} >
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                         <img
                           src="https://artprojectsforkids.org/wp-content/uploads/2023/12/How-to-Draw-a-Bell-web.jpg"
                           alt="notification"

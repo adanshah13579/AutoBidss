@@ -5,20 +5,38 @@ import ImageGallery from "react-image-gallery";
 import NavbarLoggedIn from "../../components/NavbarLoggedIn/navbarLoggedIn";
 import Footer from "../../components/Footer/Footer";
 import { fetchCarDetails } from "../../../RESTAPI/Profile/ProfileRoutes";
+<<<<<<< HEAD
 import { Carousel } from 'antd';
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
 import "/node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "./CarDetails.css";
 import { useParams } from "react-router-dom";
 import SimilarCars from "../Similar_cars/similarcars";
+<<<<<<< HEAD
 import Countdown from "react-countdown";
+=======
+import CustomModal from "../../components/Modals/CustomModal";
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
 const CarDetails = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [carDetails, setCarDetails] = useState(null);
+<<<<<<< HEAD
 
   const { carId } = useParams();
+=======
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalType, setModalType] = useState("");  
+  const [modalContent, setModalContent] = useState("");
+  const [modalTitle, setModalTitle] = useState("");
+
+
+  const {carId} = useParams();
+
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
   const handleFetchCarDetails = () => {
     fetchCarDetails(carId, setLoading, setError, setCarDetails);
@@ -26,6 +44,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     handleFetchCarDetails();
+<<<<<<< HEAD
     console.log("Car Details", carDetails);
     console.log(carId);
   }, []);
@@ -76,6 +95,54 @@ const CarDetails = () => {
     );
   };
 
+=======
+    console.log("Car Details",carDetails);
+    console.log(carId);
+
+  }, []);
+
+  
+  const images = carDetails
+    ? carDetails.pictures.map((pic) => ({
+        original: pic,
+        thumbnail: pic,
+      }))
+    : [];
+
+    const openModal = (type) => {
+      setModalType(type);
+  
+      if (type === "bid") {
+        setModalTitle("Place Your Bid");
+        setModalContent("Are you sure you want to place your bid on this car?");
+      } else if (type === "buy") {
+        setModalTitle("Buy Now");
+        setModalContent("Are you sure you want to buy this car?");
+      } else if (type === "download") {
+        setModalTitle("Download Car Report");
+        setModalContent("You can download the car inspection report here.");
+      }
+  
+      setIsModalVisible(true);
+    };
+  
+    const handleCancelModal = () => {
+      setIsModalVisible(false);
+    };
+
+    const handleOk = () => {
+      if (modalType === "bid") {
+        message.success("Bid placed successfully!");
+      } else if (modalType === "buy") {
+        message.success("Car purchased successfully!");
+      } else if (modalType === "download") {
+        message.success("Car Report downloaded successfully!");
+      }
+      setIsModalVisible(false);
+    };
+  
+  
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   return (
     <div>
       <NavbarLoggedIn />
@@ -102,7 +169,11 @@ const CarDetails = () => {
 
         <div className="detailsAndBids">
           <div className="galleryAndDetails">
+<<<<<<< HEAD
             <div className="gallery" >
+=======
+            <div className="gallery">
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
               <span className="carTitleHead">
                 {carDetails ? carDetails.carTitle : "Loading..."}
               </span>
@@ -113,6 +184,7 @@ const CarDetails = () => {
                     ).toDateString()}`
                   : "Loading..."}
               </span>
+<<<<<<< HEAD
               {/* <ImageGallery showPlayButton={false} items={images} /> */}
               <ImageGallery
               
@@ -122,6 +194,9 @@ const CarDetails = () => {
                 showFullscreenButton={true}
                 showPlayButton={false}
               />
+=======
+              <ImageGallery showPlayButton={false} items={images} />
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
             </div>
 
             <div className="features">
@@ -137,6 +212,7 @@ const CarDetails = () => {
                   <CarFilled className="spanIcon" />
                   {carDetails ? `${carDetails.seats} Seats` : "Loading..."}
                 </span>
+<<<<<<< HEAD
                 <span>
                   <CarFilled className="spanIcon" />
                   {carDetails ? carDetails.make : "Loading..."}
@@ -187,6 +263,22 @@ const CarDetails = () => {
                   <span className="overViewtext1">
                     {carDetails ? carDetails.wheels : "Loading..."}
                   </span>
+=======
+              </div>
+            </div>
+
+            <div className="descriptionSection">
+              <div className="features">
+                <div>
+                  <span className="FeaturesHead">Seller Comments</span>
+                </div>
+                <div className="sellerComment">
+                  <p>
+                    {carDetails
+                      ? carDetails.description
+                      : "No comments available."}
+                  </p>
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                 </div>
               </div>
             </div>
@@ -214,6 +306,7 @@ const CarDetails = () => {
                   <span>Ending in </span>
                   <br />
                   <span style={{ color: "red" }}>
+<<<<<<< HEAD
                     {carDetails ? (
                       <Countdown
                         date={new Date(carDetails.bidAcceptTill)}
@@ -280,6 +373,11 @@ const CarDetails = () => {
                     ) : (
                       "Loading..."
                     )}
+=======
+                    {carDetails
+                      ? new Date(carDetails.bidAcceptTill).toLocaleString()
+                      : "Loading..."}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                   </span>
                 </div>
               </div>
@@ -295,7 +393,11 @@ const CarDetails = () => {
               <div className="colflex">
                 <span style={{ fontWeight: 600 }}>Car Report </span>
                 <span style={{ fontWeight: 600, color: "#2B59FF" }}>
+<<<<<<< HEAD
                   <a style={{ cursor: "pointer" }}> Download Car Report</a>
+=======
+                  <a onClick={() => openModal("download")}style={{ cursor: "pointer" }}> Download Car Report</a>
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                 </span>
               </div>
             </div>
@@ -308,6 +410,16 @@ const CarDetails = () => {
               <div className="overViewMid">
                 <div className="overViewInner">
                   <CarFilled className="overViewIcon" />
+<<<<<<< HEAD
+=======
+                  <span className="overViewtext1">Make:</span>
+                  <span className="overViewtext1">
+                    {carDetails ? carDetails.make : "Loading..."}
+                  </span>
+                </div>
+                <div className="overViewInner">
+                  <CarFilled className="overViewIcon" />
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                   <span className="overViewtext1">Model:</span>
                   <span className="overViewtext1">
                     {carDetails ? carDetails.model : "Loading..."}
@@ -317,7 +429,13 @@ const CarDetails = () => {
                   <CarFilled className="overViewIcon" />
                   <span className="overViewtext1">Transmission:</span>
                   <span className="overViewtext1">
+<<<<<<< HEAD
                     {carDetails ? carDetails.transmission : "Loading..."}
+=======
+                    {carDetails
+                      ? carDetails.transmission
+                      : "Loading..."}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
                   </span>
                 </div>
                 <div className="overViewInner">
@@ -327,6 +445,7 @@ const CarDetails = () => {
                     {carDetails ? carDetails.fuel : "Loading..."}
                   </span>
                 </div>
+<<<<<<< HEAD
                 <div className="overViewInner">
                   <CarFilled className="overViewIcon" />
                   <span className="overViewtext1">Engine:</span>
@@ -422,14 +541,43 @@ const CarDetails = () => {
                     {carDetails ? carDetails.accidentHistory : "Loading..."}
                   </span>
                 </div>
+=======
+              </div>
+              <hr className="linehr" />
+              <div className="overViewActions">
+                <button className="overViewbuy-button"  onClick={() => openModal("buy")}>
+                  Buy Now
+                </button>
+                <button className="overViewbid-button" onClick={() => openModal("bid")}>
+                  Bid Now 
+                </button>
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
               </div>
             </div>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
       {loading && <Spin size="large" tip="Loading..." />}
       {error && <div>{error}</div>}
       <SimilarCars />
+=======
+       
+      </div>
+      <SimilarCars />
+      <CustomModal
+        isVisible={isModalVisible}
+        title={modalTitle}
+        content={modalContent}
+        onOk={handleOk}
+        onCancel={handleCancelModal}
+        singleButton={false}
+        type={modalType === "download" ? "default" : "primary"}
+      />
+      {loading && <Spin size="large" tip="Loading..." />}
+      {error && <div>{error}</div>}
+      
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       <Footer />
     </div>
   );

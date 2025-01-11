@@ -48,6 +48,7 @@
 
   font-family: "Inter";
 
+<<<<<<< HEAD
   color: rgb(231, 38, 12);
 
   background: rgba(0, 0, 0, 0.5);
@@ -70,6 +71,8 @@
 
   font-family: "Inter";
 
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   color: wheat;
 
   background: rgba(0, 0, 0, 0.5);
@@ -82,6 +85,10 @@
   
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 .chat-icon {
   font-family: "Inter";
   cursor: pointer;
@@ -316,3 +323,8 @@
     width: 40%;
   }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181

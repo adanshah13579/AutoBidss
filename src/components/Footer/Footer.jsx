@@ -8,6 +8,11 @@ import X from "../../assets/svgs/x.svg";
 import YT from "../../assets/svgs/yt.svg";
 import Insta from "../../assets/svgs/insta.svg";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import CarReportPage from "../cartreportpage/carreportpage";
+import CarReportModal from "../CarReportModal/CarReportModal";
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
 const Footer = () => {
   return (
@@ -59,7 +64,11 @@ const Footer = () => {
               </div>
             </button>
           </div>
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
           <div className="footer-bottom">
             <div className="social-icons">
               <a href="#">
@@ -83,6 +92,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     </footer>
   );
 };

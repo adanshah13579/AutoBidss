@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./homepageslider.css";
 import { Link } from "react-router-dom";
@@ -28,3 +29,18 @@ const Homepageslider = () => {
 };
 
 export default Homepageslider;
+=======
+import React from 'react'
+import './homepageslider.css';
+const Homepageslider = () => {
+  return (
+    <div className='slider'>
+     <div className='content'>
+         <h3>Ready to Sell Your Car Today?</h3>
+     </div>
+    </div>
+  )
+}
+
+export default Homepageslider
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181

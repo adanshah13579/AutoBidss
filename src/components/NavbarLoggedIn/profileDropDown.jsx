@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
+<<<<<<< HEAD
 import { Badge, Avatar, Modal, Button, Input, Spin, Form } from "antd";
+=======
+import { Badge, Avatar, Button, Input, Spin, Form } from "antd";
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 import {
   HeartOutlined,
   LockOutlined,
@@ -22,7 +26,10 @@ const ProfileDropdown = () => {
   const [isChangePasswordModalVisible, setIsChangePasswordModalVisible] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const [initialProfileData, setInitialProfileData] = useState(null);
@@ -36,12 +43,18 @@ const ProfileDropdown = () => {
 
   const handleCancelChangePassword = () => {
     setIsChangePasswordModalVisible(false);
+<<<<<<< HEAD
     setOldPassword("");
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     setNewPassword("");
     setConfirmPassword("");
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const handleChangePasswordSubmit = async () => {
     if (!newPassword || !confirmPassword) {
       message.error("Please fill all fields");
@@ -59,29 +72,46 @@ const ProfileDropdown = () => {
       handleCancelChangePassword(); // Close the modal
     } else {
       message.error(response.error);
+<<<<<<< HEAD
     }}
+=======
+    }
+  };
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
 
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   // Toggle dropdown visibility
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+<<<<<<< HEAD
   // Show Modal and fetch profile data
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const showModal = async () => {
     setIsModalVisible(true);
     await fetchProfileData();
   };
 
+<<<<<<< HEAD
   // Hide Modal and reset editing state
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const handleCancel = () => {
     setIsModalVisible(false);
     setIsEditing(false);
   };
 
+<<<<<<< HEAD
   // Fetch profile data from API
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const fetchProfileData = async () => {
     setLoading(true);
     setError(null);
@@ -102,13 +132,19 @@ const ProfileDropdown = () => {
     }
   };
 
+<<<<<<< HEAD
   // Handle navigation
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const handleNavigation = (path) => {
     navigate(path);
     setIsMenuOpen(false);
   };
 
+<<<<<<< HEAD
   // Handle logout
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const handleLogout = () => {
     Cookies.remove("name");
     Cookies.remove("email");
@@ -119,14 +155,20 @@ const ProfileDropdown = () => {
     setIsLogoutModalVisible(false);
   };
 
+<<<<<<< HEAD
   // Handle Save Changes
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const handleSaveChanges = async () => {
     setLoading(true);
     setError(null);
 
     const changedData = {};
 
+<<<<<<< HEAD
     // Compare current values with initial data
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     Object.keys(profileData).forEach((key) => {
       if (profileData[key] !== initialProfileData[key]) {
         changedData[key] = profileData[key];
@@ -137,7 +179,10 @@ const ProfileDropdown = () => {
       setLoading(false);
       return;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
     try {
       const token = Cookies.get("token");
       await axios.put(`${baseuri}/profiles/edit-profile`, changedData, {
@@ -156,7 +201,10 @@ const ProfileDropdown = () => {
 
   return (
     <div style={{ position: "relative" }} ref={dropdownRef}>
+<<<<<<< HEAD
       {/* Avatar with Badge */}
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       <Badge showZero={false} count={0} size="small">
         <Avatar
           style={{ backgroundColor: "transparent", color: "#2B59FF" }}
@@ -167,11 +215,17 @@ const ProfileDropdown = () => {
         />
       </Badge>
 
+<<<<<<< HEAD
       {/* Dropdown Menu */}
       {isMenuOpen && (
         <div className="profile-menu">
           <div className="profile-header">
             <Avatar size={50} style={{ backgroundColor: "#2B59FF" }} />
+=======
+      {isMenuOpen && (
+        <div className="profile-menu">
+          <div className="profile-header">
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
             <div className="profile-details">
               <strong>{Cookies.get("name") || "John Doe"}</strong>
               <p>{Cookies.get("email") || "johndoe@example.com"}</p>
@@ -208,10 +262,14 @@ const ProfileDropdown = () => {
               </span>
               <span>&gt;</span>
             </div>
+<<<<<<< HEAD
             <div
               className="profile-link"
               onClick={() => setIsLogoutModalVisible(true)}
             >
+=======
+            <div className="profile-link" onClick={() => setIsLogoutModalVisible(true)}>
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
               <span>
                 <LogoutOutlined style={{ marginRight: 5 }} /> Log Out
               </span>
@@ -221,6 +279,7 @@ const ProfileDropdown = () => {
         </div>
       )}
 
+<<<<<<< HEAD
 <Modal
   title="My Profile"
   open={isModalVisible}
@@ -329,12 +388,124 @@ const ProfileDropdown = () => {
           Change Password
         </Button>
       </Modal>
+=======
+      {/* Profile Modal */}
+      <CustomModal
+        isVisible={isModalVisible}
+        title="My Profile"
+        content={
+          loading ? (
+            <Spin size="large" style={{ alignContent: "center" }} />
+          ) : error ? (
+            <p style={{ color: "red" }}>{error}</p>
+          ) : profileData ? (
+            <Form layout="vertical">
+              <Form.Item label="First Name">
+                <Input
+                  value={profileData.firstName || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, firstName: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Last Name">
+                <Input
+                  value={profileData.lastName || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, lastName: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Email">
+                <Input
+                  value={profileData.email || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, email: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="City">
+                <Input
+                  value={profileData.city || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, city: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Country">
+                <Input
+                  value={profileData.country || ""}
+                  onChange={(e) =>
+                    setProfileData({ ...profileData, country: e.target.value })
+                  }
+                  disabled={!isEditing}
+                />
+              </Form.Item>
+
+              <Form.Item label="Account Status">
+                <Input value={profileData.AccountStatus || ""} disabled />
+              </Form.Item>
+
+              <Form.Item label="User Type">
+                <Input value={profileData.userType || ""} disabled />
+              </Form.Item>
+            </Form>
+          ) : (
+            <p>No profile data available.</p>
+          )
+        }
+        onOk={handleSaveChanges}
+        onCancel={handleCancel}
+        singleButton={false}
+      />
+
+      {/* Change Password Modal */}
+      <CustomModal
+        isVisible={isChangePasswordModalVisible}
+        title="Change Password"
+        content={
+          <>
+            <Input.Password
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              style={{ marginBottom: 10 }}
+            />
+            <Input.Password
+              placeholder="Confirm New Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              style={{ marginBottom: 20 }}
+            />
+          </>
+        }
+        onOk={handleChangePasswordSubmit}
+        onCancel={handleCancelChangePassword}
+        singleButton={true}
+        type="error"
+      />
+
+      {/* Logout Confirmation Modal */}
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       <CustomModal
         isVisible={isLogoutModalVisible}
         title="Confirm Logout"
         content="Are you sure you want to log out?"
         onOk={handleLogout}
         onCancel={() => setIsLogoutModalVisible(false)}
+<<<<<<< HEAD
+=======
+        singleButton={true}
+        type="error"
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
       />
     </div>
   );

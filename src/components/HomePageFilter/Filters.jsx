@@ -6,7 +6,11 @@ import useWindowSize from "./WinSizeHook"; // Import the custom hook
 
 const { Panel } = Collapse;
 
+<<<<<<< HEAD
 const Filter = ({ filters, setFilters,clearFilteredCars }) => {
+=======
+const Filter = ({ filters, setFilters }) => {
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   const { width } = useWindowSize();
   const isMobile = width <= 768; // Define mobile width threshold
 
@@ -47,7 +51,10 @@ const Filter = ({ filters, setFilters,clearFilteredCars }) => {
       registeredIn: [],
       transmission: [],
     });
+<<<<<<< HEAD
     clearFilteredCars();
+=======
+>>>>>>> 15ac29a88a191a413cfc89564940f43c50160181
   };
 
   // Toggle Expand/Collapse All
