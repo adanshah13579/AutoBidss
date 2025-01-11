@@ -1,0 +1,97 @@
+/* General Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.heading-container {
+  background-color: #eff2ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+  font-family: "inter";
+}
+
+.heading {
+  font-size: 24px;
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-item {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Wrap label and input if necessary */
+}
+
+.form-label {
+  width: 120px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.form-input {
+  flex: 1;
+  width: auto;
+  min-width: 150px;
+}
+
+.ant-input,
+.ant-input-textarea {
+  width: 100%;
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-label {
+    margin-bottom: 5px;
+    width: auto;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .form-item {
+    margin-bottom: 10px;
+  }
+}

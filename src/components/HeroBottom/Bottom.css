@@ -1,0 +1,64 @@
+.features-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 2rem 0rem;
+  text-align: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem; /* Spacing between icon and text */
+  max-width: auto;
+  padding: 0 5vw;
+
+  text-align: center;
+}
+
+.icon-circle {
+  background-color: #fff; /* White circular background for icons */
+  border-radius: 50%; /* Makes it a circle */
+  width: 5rem;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-circle img {
+  width: 100%; /* Adjust icon size */
+  height: 100%;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Inter";
+  text-align: left;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .features-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .icon-circle {
+    width: 2rem;
+  }
+  .feature-item {
+    text-align: center;
+    flex-direction: column;
+    padding: 0rem 3rem;
+    gap: 20px;
+  }
+  .feature-item p {
+    text-align: center;
+  }
+}

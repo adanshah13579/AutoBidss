@@ -1,0 +1,129 @@
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0px 5rem;
+  padding-top: 2rem;
+
+  background-color: #f8fafc;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.step-reverse {
+  flex-direction: row-reverse;
+  background-color: #ffffff;
+}
+
+.step-content {
+  flex: 1;
+  text-align: left;
+}
+
+.step-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+  font-family: "Outfit";
+}
+
+.step-number {
+  color: #3b82f6; /* Blue color */
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #6b7280; /* Gray color */
+  margin-bottom: 1rem;
+  font-family: "Inter";
+}
+
+.step-list {
+  list-style: none;
+
+  padding: 0;
+}
+
+.step-list li {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+  font-family: "Inter";
+}
+
+.step-image {
+  flex: 1;
+}
+
+.step-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+}
+.readyCard {
+  background-color: #f8fafc;
+}
+.readyCard {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+/* Image styling */
+.readyImage {
+  width: 90%;
+  margin-top: -5%;
+  display: block;
+  justify-self: center;
+  align-self: flex-start;
+}
+
+/* Overlay container */
+.readyOverlay {
+  position: absolute;
+  top: 70%; /* Adjust position vertically */
+  left: 60%; /* Adjust position horizontally */
+  transform: translate(-50%, -50%);
+  text-align: left;
+  width: 100%;
+}
+.btnStartSelling {
+  background-color: #ffffff;
+  color: #2b59ff;
+  font-family: "Inter";
+  font-size: 1.3rem;
+  padding: 0.8rem 3.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .step {
+    flex-direction: column;
+  }
+  .steps-container {
+    padding: 1rem 2rem;
+  }
+  .readyText {
+    color: #fff;
+    font-size: 0.6rem;
+    margin: 0;
+    font-family: "Outfit", sans-serif; /* Optional: Use Inter font */
+  }
+  .btnStartSelling {
+    background-color: #ffffff;
+    color: #2b59ff;
+    font-family: "Inter";
+    font-size: 0.3rem;
+    padding: 0.1rem 1rem;
+  }
+}

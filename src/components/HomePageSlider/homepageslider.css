@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
+
+.sellcontainer {
+  margin: 20px;
+  background-color: #4A3AFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  color: #fff;
+  flex-wrap: wrap;
+  position: relative; 
+  flex-direction: row !important;
+  overflow:visible !important;
+}
+
+.left-content {
+  text-align: left;
+  width: 50%;
+  font-family: 'Outfit', sans-serif;
+
+}
+.left-content button {
+  background-color: #fff;
+  color: #4A3AFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.left-content h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.left-content p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.right-content {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.right-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  position: absolute; 
+  right: -50px; 
+  top: -240px;
+  z-index: 100; 
+  max-height: none;
+  overflow: visible !important; 
+}
+
+
+@media (max-width: 768px) {
+  .left-content, .right-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .left-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .right-content img {
+    display: none; 
+  }
+
+  .sellcontainer {
+    padding: 20px;
+  }
+}

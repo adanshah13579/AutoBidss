@@ -1,0 +1,206 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #fff;
+}
+
+.signup-content {
+  display: flex;
+  min-height: 100%;
+  min-width: 90%;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.TraderForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 5px;
+  justify-self: center;
+  padding-left: 50px;
+  justify-content: flex-start;
+}
+.TraderInput {
+  height: 50px;
+}
+.TraderItem {
+  width: 45%;
+}
+.TraderItemS {
+  width: 100%;
+}
+.IndiForm {
+  justify-self: center;
+  width: 75%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.IndiInput {
+  height: 50px;
+}
+.Security {
+  display: flex;
+
+  flex-direction: column;
+  gap: 5px;
+}
+.Security .TraderItem {
+  padding-left: 25px;
+}
+.Security .TraderInput {
+  width: 150%;
+}
+
+.signup-left {
+  flex: 1;
+  min-width: 50%;
+
+  padding: 55px;
+}
+
+.signup-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+}
+
+.signup-title {
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.signup-subtitle {
+  font-size: 1.8rem;
+  font-family: "Outfit";
+  margin-bottom: 10px;
+  color: black;
+}
+
+.signup-left p {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  font-family: "Inter";
+  color: rgb(33, 33, 33);
+}
+
+.signup-btn {
+  width: 100%;
+  background-color: #2b59ff;
+  border: none;
+  height: 50px;
+  font-size: 1.2rem;
+  font-family: "Outfit";
+}
+
+.ant-tabs {
+  margin-top: 10px;
+}
+
+.ant-tabs-tab {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+.ant-tabs-tab-active {
+  background-color: #2b59ff;
+  color: white !important;
+}
+
+.ant-tabs-tab {
+  background-color: white;
+  color: black !important;
+  border: 1px solid #d9d9d9;
+}
+
+.ant-tabs-tab:hover {
+  color: #2b59ff !important;
+}
+
+.ant-form-item {
+  margin-bottom: 10px;
+}
+
+.ant-form-item-label > label {
+  font-weight: bold;
+}
+
+.ant-upload-list {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .signup-content {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .TraderForm {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .TraderItem {
+    width: 100%;
+  }
+  .Security .TraderItem {
+    padding-left: 0;
+    width: 60%;
+  }
+
+  .signup-right {
+    display: none;
+  }
+
+  .signup-container {
+    height: auto;
+    padding: 10px;
+  }
+
+  .signup-left {
+    padding: 10px;
+  }
+
+  .ant-tabs-tab {
+    font-size: 1rem;
+  }
+}
+.uploadsDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.itemImg {
+  width: 32%;
+}
+@media screen and (max-width: 480px) {
+  .signup-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .ant-tabs-tab {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  .itemImg {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .itemImg {
+    width: 50%;
+  }
+}

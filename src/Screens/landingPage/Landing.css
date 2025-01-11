@@ -1,0 +1,42 @@
+#root {
+  background-color: white;
+  text-align: center;
+  /* overflow-x: hidden; */
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.reviewHead {
+  line-height: 1;
+  background-color: white;
+  color: black;
+  padding: 0rem 2rem;
+}
+.reviewHead h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-family: "Outfit";
+}
+.reviewHead p {
+  font-family: "Inter";
+  margin-bottom: 2%;
+}
+@media (max-width: 768px) {
+  .reviewHead h1 {
+    /* margin: 0; */
+    font-size: 2rem;
+    /* font-family: "Outfit"; */
+  }
+  .reviewHead p {
+    margin-bottom: 5%;
+    line-height: 1.4;
+    /* font-family: "Outfit"; */
+  }
+}

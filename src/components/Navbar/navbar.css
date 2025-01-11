@@ -1,0 +1,85 @@
+/* Navbar Base Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eff2ff;
+  padding-right: 15vh;
+  padding-left: 15vh;
+  position: sticky;
+  min-height: 4vh;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Outfit";
+  color: #000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5vh;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-family: "Inter";
+}
+#loginbtn {
+  color: white;
+}
+.login-btn {
+  background-color: #2b59ff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+  width: 15vw;
+  height: 48;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  background-color: #000;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+}
+
+/* Responsive for Mobile View */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+  .navbar {
+    padding: 0 10vw;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #eff2ff;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    display: none; /* Hidden by default */
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show menu when active */
+  }
+}

@@ -1,0 +1,143 @@
+/* Footer Container */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 30px 5%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  width: 100%;
+  
+}
+
+.footer-top {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #444;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.footer-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: 5%;
+  line-height: 2;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  color: #fff;
+  margin: 8px 20px;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  font-family: "Inter";
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: #137dff;
+}
+
+/* Footer Main Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-description {
+  max-width: 600px;
+  text-align: left;
+  font-family: "Inter";
+}
+
+.footer-description h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+
+  font-family: "Outfit";
+}
+
+.footer-description p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-buttons .store-button {
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+.store-button1 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+}
+.footer-buttons .store-button:hover {
+  background-color: #ddd;
+}
+
+/* Social Icons */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .topLevel {
+    margin: 0;
+  }
+  .footer-nav a {
+    margin: 5px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-buttons {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-buttons .store-button {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+}

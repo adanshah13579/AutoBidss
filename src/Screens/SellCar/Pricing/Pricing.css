@@ -1,0 +1,103 @@
+.pricing-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.heading-container {
+  background-color: #eff2ff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+
+  text-align: left;
+  font-family: "inter";
+}
+.content {
+  width: 100%;
+}
+.heading {
+  font-size: 24px;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.label {
+  font-size: 16px; /* Increased label font size */
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+  text-align: left;
+}
+
+.required {
+  color: red;
+  font-size: 16px; /* Increased size of asterisk */
+  margin-left: 5px;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 14px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Remove number input spinner */
+}
+
+select {
+  width: 73%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 20px;
+  }
+
+  .form-container {
+    gap: 15px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+}

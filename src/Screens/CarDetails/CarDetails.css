@@ -1,0 +1,285 @@
+.CarDetailsMain {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.profileAndChatSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #eff2ff;
+  flex: 1;
+  align-items: center;
+  padding: 10px;
+}
+.sellerProfile {
+  color: black;
+  align-items: center;
+  font-family: "Outfit";
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+}
+.sellerProfile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}
+.sellerTexts {
+  display: flex;
+  flex-direction: column;
+}
+.sellerProfile {
+  font-size: 0.9rem;
+  font-family: "Inter";
+  font-weight: 300;
+  color: #434343ca;
+}
+.SellerName {
+  font-size: 1.1rem;
+  font-family: "Inter";
+  font-weight: 500;
+  color: black;
+}
+.chatButtonSeller {
+  height: 40px;
+  font-size: 0.9rem;
+  color: #2b59ff;
+  font-family: "Outfit";
+  font-weight: 500;
+}
+.detailsAndBids {
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  
+}
+.galleryAndDetails {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  gap: 5px;
+}
+.gallery {
+  display: flex;
+  color: black;
+  font-size: 1rem;
+  font-family: "Outfit";
+  gap: 1px;
+  flex-direction: column;
+  background-color: white;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(225, 225, 225);
+  
+ 
+}
+
+.postDate {
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  text-align: left;
+}
+.carTitleHead {
+  font-size: 1.3rem;
+  margin-bottom: 0px !important;
+  font-weight: 600 !important;
+  padding-left: 10px;
+  text-align: left;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  gap: 10px;
+  justify-content: flex-start;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-family: "Inter";
+  border-radius: 20px;
+  border: 1px solid rgb(225, 225, 225);
+}
+.features span {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.FeaturesHead {
+  font-family: "Outfit";
+  font-weight: 500 !important;
+  font-size: 1.3rem !important;
+}
+.featuresInner {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 1.1rem;
+  justify-content: space-around;
+}
+
+.spanIcon {
+  margin-right: 10px;
+}
+.bidDetailsAndReportsSection {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bidDetails {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid rgb(225, 225, 225);
+  color: black;
+  font-family: "Outfit";
+  justify-content: space-around;
+}
+.colflex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.reportDetails {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid rgb(225, 225, 225);
+  color: black;
+  font-family: "Outfit";
+  justify-content: left;
+  text-align: left;
+}
+.overView {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  gap: 10px;
+  justify-content: flex-start;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-family: "Inter";
+  border-radius: 20px;
+  border: 1px solid rgb(225, 225, 225);
+}
+.overViewHead {
+  font-family: "Outfit";
+  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+}
+.overViewInner {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  font-size: 0.8rem;
+  flex-direction: column;
+  color: #2b59ff;
+  width: 15%;
+}
+.overViewMid {
+  display: flex;
+  justify-content: left;
+  gap: 15px;
+
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.8rem;
+  flex-direction: row;
+
+  color: #2b59ff;
+}
+.linehr {
+  border-top: 1px solid #d1d1d1;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 90%;
+}
+.overViewActions {
+  display: flex;
+
+  justify-content: space-around;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+.overViewbid-button,
+.overViewbuy-button {
+  font-family: "Inter";
+
+  font-size: clamp(0.7rem, 1vw, 0.8rem); /* Adjust font size responsively */
+
+  padding: 0.65rem; /* Adjust button padding */
+  height: 50px;
+  width: 32%;
+  background-color: #2b59ff;
+  border: 1px solid #2b59ff;
+  margin-top: 20px;
+}
+.highB {
+  font-family: "Outfit";
+  font-weight: 600;
+  font-size: 1.2rem; /* Adjust font size responsively */
+}
+.overViewbid-button {
+  background-color: transparent;
+
+  color: #2b59ff;
+}
+
+.overViewbuy-button:hover {
+  background-color: #1d3796;
+
+  transition: background-color 0.5s ease;
+}
+
+.overViewbid-button:hover {
+  background-color: #ebebeb;
+
+  transition: background-color 0.5s ease;
+}
+.endingTimer {
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 768px) {
+  .CarDetailsMain {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .detailsAndBids {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .galleryAndDetails {
+    max-width: 100%;
+  }
+  .overView {
+    padding: 10px;
+    padding-left: 20px;
+  }
+}
